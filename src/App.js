@@ -1,6 +1,6 @@
 //Linha que importa o histórico
 import history from "./assets/data/history.json"
-import { teste, numeroDePlays, musicasDiferentes } from "./common/index.js";
+import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos } from "./common/index.js";
 
 function App() {
 
@@ -11,6 +11,7 @@ function App() {
     <div className="App">
       <p>numero de plays no total: {numeroDePlays()} </p>
       <p>numero de musicas diferentes ja ouvidas: {musicasDiferentes()} </p>
+      <p>numero de minutos ouvidos: {minutosTotaisOuvidos()} min </p>
     </div>
   );
 }
