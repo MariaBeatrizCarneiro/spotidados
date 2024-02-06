@@ -74,10 +74,10 @@ export function estacaoDoAno(date) {
 export function estacaoMaisOuvida() {
     const stringEstacoes = ["Primavera", "Verão", "Outono", "Inverno"];
 
-    const tempoEstacoes = history.reduce((tempoEstacoes, registro) => {
-        const data = new Date(registro.ts);
+    const tempoEstacoes = history.reduce((tempoEstacoes, current) => {
+        const data = new Date(current.ts);
         const estacao = estacaoDoAno(data);
-        tempoEstacoes[estacao] += registro.ms_played;
+        tempoEstacoes[estacao] += current.ms_played;
         return tempoEstacoes;
     }, [0, 0, 0, 0]);
 
@@ -91,9 +91,9 @@ export function topCemArtistas(intervalo) {
        acc.set(e.master_metadata_album_artist_name, 1)
     }, new Map());
 
-    const sortedArtistas= [...artistas].sort((a, b) => b[1] - a[1]);
+    const sortedArtistas = [...artistas].sort((a, b) => b[1] - a[1]);
 
-    return sortedArtistas.slice(0, 100).map(item => item[0] + " ");
+    return sortedArtistas.slice(0, 100).map(item => item[0]);
 }
 
 export function filtraPorIntervaloDeTempo(intervalo) {
@@ -123,7 +123,7 @@ export function topCemMusicas(intervalo) {
 
     const sortedMusicas= [...musicas].sort((a, b) => b[1][0] - a[1][0]);
 
-    return sortedMusicas.slice(0, 100).map(item => item[0] + " - " + item[1][1] + " ");
+    return sortedMusicas.slice(0, 100).map(item => item[0] + " - " + item[1][1]);
 }
 
 
@@ -162,7 +162,7 @@ export function topVinteMusicasPorArtista(intervalo, artista) {
 
     const sortedMusicas= [...musicas].sort((a, b) => b[1][0] - a[1][0]);
 
-    return sortedMusicas.slice(0, 20).map(item => item[0] + " - " + item[1][1] + " ");
+    return sortedMusicas.slice(0, 20).map(item => item[0] + " - " + item[1][1]);
 }
 
 export function filtraPorIntervaloDeTempoPorArtista(intervalo, artista) {
@@ -183,3 +183,20 @@ export function filtraPorIntervaloDeTempoPorArtista(intervalo, artista) {
     return historyFilter;
 }
 
+export function posicaoTopCemArtista(artista) {
+    const topArtistas = topCemArtistas("sempre");
+    return topArtistas.indexOf(artista)+1;
+}
+
+export function artistaEstacaoMaisOuvida(artista) {
+    const stringEstacoes = ["Primavera", "Verão", "Outono", "Inverno"];
+
+    const tempoEstacoes = history.filter((e) => e.master_metadata_album_artist_name == artista).reduce((tempoEstacoes, current) => {
+        const data = new Date(current.ts);
+        const estacao = estacaoDoAno(data);
+        tempoEstacoes[estacao] += current.ms_played;
+        return tempoEstacoes;
+    }, [0, 0, 0, 0]);
+
+    return stringEstacoes[tempoEstacoes.indexOf(Math.max(...tempoEstacoes))]
+}

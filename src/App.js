@@ -1,15 +1,34 @@
 //Linha que importa o histórico
 import { useState } from "react";
 import history from "./assets/data/history.json"
-import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida, topCemArtistas, topCemMusicas, numPlaysArtista, musicasDiferentesArtista, minutosOuvidosArtista, playsDoArtista, topVinteMusicasPorArtista } from "./common/index.js";
+import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida, topCemArtistas, topCemMusicas, numPlaysArtista, musicasDiferentesArtista, minutosOuvidosArtista, playsDoArtista, topVinteMusicasPorArtista, posicaoTopCemArtista, artistaEstacaoMaisOuvida } from "./common/index.js";
 
 function App() {
+  const [paginaAtual, setPaginaAtual] = useState({
+    path: "index",
+    context: ""
+  })
+
+
+  const paginas = new Map([
+    ["index", <Pagina onChangePage={(page) => setPaginaAtual({path: page, context: ""})} />],
+    ["cenas", <div>cenas</div>],
+    ["coisas", <div>coisas</div>],
+    // ["top-musica", <TopPage context="artista"/>],
+    // ["top-artista", <TopPage context="musica"/>],
+    // ["artista", <ArtistPage artist="Kendrick Lamar"/>],
+    // ["top-20", <ArtistTopPage artist="Kendrick Lamar"/>],
+
+  ])
+
   //Como podes ver na consola, é um array de objetos
-  console.log(history)
 
   return (
     <div className="App">
-      <p>numero de plays no total: {numeroDePlays()} </p>
+      {
+        paginas.has(paginaAtual.path) ? paginas.get(paginaAtual.path) : <div>ERROR </div>
+      }
+      {/* <p>numero de plays no total: {numeroDePlays()} </p>
       <p>numero de musicas diferentes ja ouvidas: {musicasDiferentes()} </p>
       <p>numero de minutos ouvidos: {minutosTotaisOuvidos()} min </p>
       <p>media de tempo diario: {mediaTempoDiario()} min por dia</p>
@@ -22,8 +41,21 @@ function App() {
       <p>minutos ouvidos por artista: {minutosOuvidosArtista("TOOL")}</p>
       <p>percentagem de plays que são do artista: {playsDoArtista("TOOL")}%</p>
       <p>top 20 musicas por artista em ms: {topVinteMusicasPorArtista("4semanas", "TOOL")}</p>
+      <p>index do artista no top 100: {posicaoTopCemArtista("Kendrick Lamar")}</p>
+      <p>em que estação o artista é mais ouvido: {artistaEstacaoMaisOuvida("TOOL")}</p> */}
     </div>
   );
+}
+
+
+
+function Pagina ({onChangePage}) {
+  return (
+    <div >
+      Index
+      <button onClick={() => onChangePage("cenas")}>Artista coias</button>
+    </div>
+  )
 }
 
 export default App;
