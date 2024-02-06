@@ -7,3 +7,8 @@ export const teste = () => {
       return e.master_metadata_track_name;
     });
   };
+
+
+export const numeroDePlays = () =>{
+  return history.length;
+}
