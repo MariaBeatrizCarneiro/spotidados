@@ -151,3 +151,35 @@ export function minutosOuvidosArtista(artista) {
 export function playsDoArtista(artista) {
     return (numPlaysArtista(artista) / numeroDePlays() * 100).toFixed(1);
 }
+
+
+export function topVinteMusicasPorArtista(intervalo, artista) {
+    const musicas = filtraPorIntervaloDeTempoPorArtista(intervalo, artista).reduce((acc, e) => {
+       return acc.has(e.master_metadata_track_name) ?
+       acc.set(e.master_metadata_track_name, [acc.get(e.master_metadata_track_name) + e.ms_played, e.master_metadata_album_album_name]) :
+       acc.set(e.master_metadata_track_name, [e.ms_played, e.master_metadata_album_album_name])
+    }, new Map());
+
+    const sortedMusicas= [...musicas].sort((a, b) => b[1][0] - a[1][0]);
+
+    return sortedMusicas.slice(0, 20).map(item => item[0] + " - " + item[1][1] + " ");
+}
+
+export function filtraPorIntervaloDeTempoPorArtista(intervalo, artista) {
+    const arrArtista = history.filter((e) => e.master_metadata_album_artist_name == artista);
+    let tempo = 0;
+    if (intervalo == "sempre") return arrArtista;
+    if (intervalo == "4semanas") tempo = 4 * 7 * 24 * 3600 * 1000;
+    if (intervalo == "6meses") tempo = 6 * 30.44 * 24 * 3600 * 1000;
+    if (intervalo == "últimoAno") tempo = 365.25 * 24 * 3600 * 1000;
+
+    const dataAtual = new Date();
+    
+    const historyFilter = arrArtista.filter((e) => {
+        const data = new Date(e.ts)
+        return data.getTime() > (dataAtual.getTime() - tempo)
+    })
+
+    return historyFilter;
+}
+
