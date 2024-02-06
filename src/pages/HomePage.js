@@ -5,12 +5,12 @@ import Menu from "./Menu";
 export default function HomePage({onChangePage}) {
     return (
       <div className="page" >
-        <p>numero de plays no total: {numeroDePlays()} </p>
-        <p>numero de musicas diferentes ja ouvidas: {musicasDiferentes()} </p>
-        <p>numero de minutos ouvidos: {minutosTotaisOuvidos()} min </p>
-        <p>media de tempo diario: {mediaTempoDiario()} min por dia</p>
-        <p>hora mais ouvida: {horaMaisOuvida()}</p>
-        <p>estação mais ouvida: {estacaoMaisOuvida()}</p>
+        <p className="mb-2 text-lg">Número de plays no total: { numeroDePlays() }.</p>
+        <p className="mb-2 text-lg">Número de músicas diferentes já ouvidas: { musicasDiferentes() }.</p>
+        <p className="mb-2 text-lg">Número de minutos ouvidos: { minutosTotaisOuvidos() } min. </p>
+        <p className="mb-2 text-lg">Média de tempo diário: { mediaTempoDiario() } min por dia.</p>
+        <p className="mb-2 text-lg">Hora mais ouvida: { horaMaisOuvida() }.</p>
+        <p className="mb-2 text-lg">Estação do ano que mais ouve música: { estacaoMaisOuvida() }.</p>
         <Menu onChangePage={onChangePage} />
         <div className="mb-16"></div>
       </div>
