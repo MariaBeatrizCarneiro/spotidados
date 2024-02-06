@@ -1,6 +1,6 @@
 //Linha que importa o histórico
 import history from "./assets/data/history.json"
-import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida } from "./common/index.js";
+import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida } from "./common/index.js";
 
 function App() {
 
@@ -14,6 +14,7 @@ function App() {
       <p>numero de minutos ouvidos: {minutosTotaisOuvidos()} min </p>
       <p>media de tempo diario: {mediaTempoDiario()} min por dia</p>
       <p>hora mais ouvida: {horaMaisOuvida()}</p>
+      <p>estação mais ouvida: {estacaoMaisOuvida()}</p>
     </div>
   );
 }

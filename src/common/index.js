@@ -54,3 +54,33 @@ export function horaMaisOuvida() {
     if (modaHora == 23) segundaHora = 0
     return "Entre as " + String(modaHora) + "h e as " + String(segundaHora) + "h"
 }
+
+
+export function estacaoDoAno(date) {
+    const mes = date.getMonth() + 1;
+    const dia = date.getDate();
+
+    if ((mes === 3 && dia >= 20) || (mes === 4) || (mes === 5) || (mes === 6 && dia < 21)) {
+        return 0; // Primavera
+    } else if ((mes === 6 && dia >= 21) || (mes === 7) || (mes === 8) || (mes === 9 && dia < 23)) {
+        return 1;   // Verão
+    } else if ((mes === 9 && dia >= 23) || (mes === 10) || (mes === 11) || (mes === 12 && dia < 21)) {
+        return 2;   // Outono
+    } else {
+        return 3;   // Inverno
+    }
+}
+
+export function estacaoMaisOuvida() {
+    const stringEstacoes = ["Primavera", "Verão", "Outono", "Inverno"];
+
+    const tempoEstacoes = history.reduce((tempoEstacoes, registro) => {
+        const data = new Date(registro.ts);
+        const estacao = estacaoDoAno(data);
+        tempoEstacoes[estacao] += registro.ms_played;
+        return tempoEstacoes;
+    }, [0, 0, 0, 0]);
+
+    return stringEstacoes[tempoEstacoes.indexOf(Math.max(...tempoEstacoes))]
+}
+
