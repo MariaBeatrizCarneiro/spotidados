@@ -1,0 +1,1 @@
+//Neste diretório devias colocar as funções que vão calcular e descobrir dados do ficheiro json
