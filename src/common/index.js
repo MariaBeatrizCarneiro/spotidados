@@ -25,7 +25,7 @@ export function mediaTempoDiario(){
   const primeiroDia = new Date(history[0].ts);
   const ultimoDia = new Date(history[history.length-1].ts);
   const diasOuvidos = (ultimoDia.getTime() - primeiroDia.getTime()) / (1000 * 3600 * 24);
-  return Math.round(minutosTotaisOuvidos() / diasOuvidos);
+  return Math.floor(minutosTotaisOuvidos() / diasOuvidos);
 }
 
 
@@ -85,7 +85,8 @@ export function estacaoMaisOuvida() {
 }
 
 export function topCemArtistas() {
-    const artistas = history.reduce((acc, e) => {
+    let intervalo = "sempre";
+    const artistas = filtraPorIntervaloDeTempo(intervalo).reduce((acc, e) => {
        return acc.has(e.master_metadata_album_artist_name) ?
        acc.set(e.master_metadata_album_artist_name, acc.get(e.master_metadata_album_artist_name) + 1) :
        acc.set(e.master_metadata_album_artist_name, 1)
@@ -95,3 +96,22 @@ export function topCemArtistas() {
 
     return sortedArtistas.slice(0, 100).map(item => item[0] + " ");
 }
+
+export function filtraPorIntervaloDeTempo(intervalo) {
+    let tempo = 0;
+    if (intervalo == "sempre") return history;
+    if (intervalo == "4semanas") tempo = 4 * 7 * 24 * 3600 * 1000;
+    if (intervalo == "6meses") tempo = 6 * 30.44 * 24 * 3600 * 1000;
+    if (intervalo == "últimoAno") tempo = 365.25 * 24 * 3600 * 1000;
+
+    const dataAtual = new Date();
+    
+    const historyFilter = history.filter((e) => {
+        const data = new Date(e.ts)
+        return data.getTime() > (dataAtual.getTime() - tempo)
+    })
+
+    return historyFilter;
+
+}
+

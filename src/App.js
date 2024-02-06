@@ -1,9 +1,10 @@
 //Linha que importa o histórico
+import { useState } from "react";
 import history from "./assets/data/history.json"
-import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida, topCemArtistas } from "./common/index.js";
+import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida, topCemArtistas, filtraPorIntervaloDeTempo } from "./common/index.js";
 
 function App() {
-
+  const [state, setState] = useState(new Date())
   //Como podes ver na consola, é um array de objetos
   console.log(history)
 
@@ -15,7 +16,11 @@ function App() {
       <p>media de tempo diario: {mediaTempoDiario()} min por dia</p>
       <p>hora mais ouvida: {horaMaisOuvida()}</p>
       <p>estação mais ouvida: {estacaoMaisOuvida()}</p>
-      <p>top 100 artistas: {topCemArtistas()}</p>
+      <button>sempre</button>
+      <button>6me</button>
+      <button>4se</button>
+      <p>top 100 artistas: {topCemArtistas(state)}</p>
+      <p>{filtraPorIntervaloDeTempo()}</p>
     </div>
   );
 }
