@@ -11,6 +11,7 @@ export default function HomePage({onChangePage}) {
         <p className="mb-2 text-lg">Média de tempo diário: { mediaTempoDiario() } min por dia.</p>
         <p className="mb-2 text-lg">Hora mais ouvida: { horaMaisOuvida() }.</p>
         <p className="mb-2 text-lg">Estação do ano que mais ouve música: { estacaoMaisOuvida() }.</p>
+        
         <Menu onChangePage={onChangePage} />
         <div className="mb-16"></div>
       </div>

@@ -5,6 +5,7 @@ import Menu from "./Menu";
 export default function TopArtistPage({onChangePage}) {
     const [periodo, setPeriodo] = useState("sempre");
     const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
+    
     return (
       <div className="page">
         <p className="mb-2 text-lg">Escolha o período:</p>
