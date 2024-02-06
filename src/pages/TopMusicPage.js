@@ -7,6 +7,7 @@ export default function TopMusicPage({onChangePage}) {
       <div className="page" >
         <p>top 100 musicas: {topCemMusicas("sempre")}</p>
         <Menu onChangePage={onChangePage} />
+        <div className="mb-16"></div>
       </div>
     )
 }

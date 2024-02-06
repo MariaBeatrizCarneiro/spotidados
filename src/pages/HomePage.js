@@ -12,6 +12,7 @@ export default function HomePage({onChangePage}) {
         <p>hora mais ouvida: {horaMaisOuvida()}</p>
         <p>estação mais ouvida: {estacaoMaisOuvida()}</p>
         <Menu onChangePage={onChangePage} />
+        <div className="mb-16"></div>
       </div>
     )
 }

@@ -1,9 +1,8 @@
-// Menu.js
 import React from "react";
 
 export default function Menu({ onChangePage }) {
   return (
-    <nav className="bg-gray-800 p-4">
+    <nav className="fixed bottom-0 left-0 w-full bg-gray-800 p-4">
       <ul className="flex justify-between items-center">
         <li><button className="text-white hover:underline" onClick={() => onChangePage("index")}>Home</button></li>
         <li><button className="text-white hover:underline" onClick={() => onChangePage("top-artista")}>Top Artistas</button></li>

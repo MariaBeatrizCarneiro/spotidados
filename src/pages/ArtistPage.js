@@ -12,6 +12,7 @@ export default function ArtistPage({onChangePage}) {
       <p>index do artista no top 100: {posicaoTopCemArtista("Kendrick Lamar")}</p>
       <p>em que estação o artista é mais ouvido: {artistaEstacaoMaisOuvida("TOOL")}</p>
       <Menu onChangePage={onChangePage} />
+      <div className="mb-16"></div>
     </div>
   )
 }
