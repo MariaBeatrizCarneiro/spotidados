@@ -49,5 +49,8 @@ export function horaMaisOuvida() {
         }
     }
 
-    return Number(modaHora);
+    modaHora = Number(modaHora);
+    let segundaHora = modaHora + 1
+    if (modaHora == 23) segundaHora = 0
+    return "Entre as " + String(modaHora) + "h e as " + String(segundaHora) + "h"
 }

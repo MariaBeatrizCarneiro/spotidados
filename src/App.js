@@ -13,7 +13,7 @@ function App() {
       <p>numero de musicas diferentes ja ouvidas: {musicasDiferentes()} </p>
       <p>numero de minutos ouvidos: {minutosTotaisOuvidos()} min </p>
       <p>media de tempo diario: {mediaTempoDiario()} min por dia</p>
-      <p>hora mais ouvida: entre as {horaMaisOuvida()}h e {horaMaisOuvida()+1}h</p>
+      <p>hora mais ouvida: {horaMaisOuvida()}</p>
     </div>
   );
 }
