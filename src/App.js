@@ -1,7 +1,7 @@
 //Linha que importa o histórico
 import { useState } from "react";
 import history from "./assets/data/history.json"
-import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida, topCemArtistas, filtraPorIntervaloDeTempo } from "./common/index.js";
+import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida, topCemArtistas } from "./common/index.js";
 
 function App() {
   const [state, setState] = useState(new Date())
@@ -19,8 +19,7 @@ function App() {
       <button>sempre</button>
       <button>6me</button>
       <button>4se</button>
-      <p>top 100 artistas: {topCemArtistas(state)}</p>
-      <p>{filtraPorIntervaloDeTempo()}</p>
+      <p>top 100 artistas: {topCemArtistas("sempre")}</p>
     </div>
   );
 }

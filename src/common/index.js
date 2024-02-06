@@ -84,13 +84,12 @@ export function estacaoMaisOuvida() {
     return stringEstacoes[tempoEstacoes.indexOf(Math.max(...tempoEstacoes))]
 }
 
-export function topCemArtistas() {
-    let intervalo = "sempre";
+export function topCemArtistas(intervalo) {
     const artistas = filtraPorIntervaloDeTempo(intervalo).reduce((acc, e) => {
        return acc.has(e.master_metadata_album_artist_name) ?
        acc.set(e.master_metadata_album_artist_name, acc.get(e.master_metadata_album_artist_name) + 1) :
        acc.set(e.master_metadata_album_artist_name, 1)
-    }, new Map);
+    }, new Map());
 
     const sortedArtistas= [...artistas].sort((a, b) => b[1] - a[1]);
 
