@@ -1,5 +1,6 @@
 //Linha que importa o histórico
 import history from "./assets/data/history.json"
+import { teste } from "./common/index.js";
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      Vai à consola ver o que se passa
+      {teste()}
     </div>
   );
 }
