@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { HomePage } from "./pages/HomePage";
+import { TopArtistPage } from "./pages/TopArtistPage";
+import { TopMusicPage } from "./pages/TopMusicPage";
 import { ArtistPage } from "./pages/ArtistPage";
 import { TopArtistMusicPage } from "./pages/TopArtistMusicPage";
-import { TopMusicPage } from "./pages/TopMusicPage";
+
+
 
 
 function App() {
@@ -11,7 +14,7 @@ function App() {
 
   const paginas = {
     "index": <HomePage onChangePage={onChangePage} />,
-    "top-artista": <TopArtistMusicPage onChangePage={onChangePage} />,
+    "top-artista": <TopArtistPage onChangePage={onChangePage} />,
     "top-musica": <TopMusicPage onChangePage={onChangePage} />,
     "artista": <ArtistPage onChangePage={onChangePage} />,
     "top-20": <TopArtistMusicPage onChangePage={onChangePage} />,
