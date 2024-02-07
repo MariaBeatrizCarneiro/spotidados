@@ -8,17 +8,21 @@ function ArtistPhoto({ artistName }) {
     const fetchArtistPhoto = async () => {
       setLoading(true);
       try {
+        // Fetching artist information from Deezer API
         const response = await fetch(
-          `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&generator=prefixsearch&gpssearch=${encodeURIComponent(
-            artistName
-          )}&formatversion=2&pithumbsize=300&redirects=1&gcmtitle=Category:Musicians|Category:Bands`
+          `https://api.deezer.com/search/artist?q=${encodeURIComponent(artistName)}`
         );
         const data = await response.json();
-        const pages = data.query.pages;
-        if (pages.length === 0 || pages[0].missing) {
-          setArtistPhoto('');
+
+        // Checking if there are artists in the response
+        if (data.data && data.data.length > 0) {
+          // Extracting the image URL from the first artist item
+          const imageUrl = data.data[0].picture_big || '';
+
+          // Set the artist photo state with the retrieved image URL
+          setArtistPhoto(imageUrl);
         } else {
-          setArtistPhoto(pages[0].thumbnail?.source || ''); // Use optional chaining to handle missing thumbnails
+          setArtistPhoto('');
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -31,11 +35,9 @@ function ArtistPhoto({ artistName }) {
 
   return (
     <div className="ArtistPhoto">
-      <h1>Artist Photo Fetcher</h1>
       {loading && <p>Loading...</p>}
       {artistPhoto && (
         <div>
-          <h2>{artistName}</h2>
           <img src={artistPhoto} alt={artistName} />
         </div>
       )}

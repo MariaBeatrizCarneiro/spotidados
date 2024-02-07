@@ -15,7 +15,7 @@ export function HomePage({onChangePage}) {
         <p className="mb-2 text-lg">Estação do ano que mais ouve música: { estacaoMaisOuvida() }.</p>
         
               <MusicAlbumArt albumName="Jesus is King"/>
-              <ArtistPhoto artistName="Zeca Pagodinho" />
+              <ArtistPhoto artistName="TOOL" />
 
         <Menu onChangePage={onChangePage} />
         <div className="mb-16"></div>
