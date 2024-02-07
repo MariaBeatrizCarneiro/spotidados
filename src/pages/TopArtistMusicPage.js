@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { topVinteMusicasPorArtista, artistNamesArr } from "../common/index.js";
+import { topVinteMusicasPorArtista } from "../common/index.js";
 import { Menu } from "./Menu";
 
-export function TopArtistMusicPage({ onChangePage, selectedArtistName }) {
+export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
     const [periodo, setPeriodo] = useState("sempre");
-    const [artista, setArtista] = useState(selectedArtistName);
+    const [artista, setArtista] = useState(selectedArtist);
 
     const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
 
     useEffect(() => {
-        console.log(selectedArtistName)
-        setArtista(selectedArtistName);
-    }, [selectedArtistName]);
+        setArtista(selectedArtist);
+    }, [selectedArtist]);
 
-    const handleInputChange = (event) => { setArtista(event.target.value); };
-
-    useEffect(() => {
-        console.log("Artista atualizado:", artista);
-    }, [artista]);
 
     return (
         <div className="page">
@@ -26,15 +20,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtistName }) {
                 <p>{periodo}</p>
             </div>
 
-            <p className="mb-2 text-lg" style={{ paddingTop: "70px" }}>Insira o nome do artista:</p>
-            <input list="artistas" type="text" value={artista} onChange={handleInputChange} className="mb-4 p-2 border border-gray-300 rounded-md" />
-            <datalist id="artistas">
-                {artistNamesArr().map((artista) => (
-                    <option key={artista} value={artista} />
-                ))}
-            </datalist>
-            
-            <p>{artista ? topVinteMusicasPorArtista(periodo, artista) : "Selecione um artista"}</p>
+            <p>{topVinteMusicasPorArtista(periodo, artista)}</p>
 
             <div style={{ paddingTop: "1rem" }}>
                 <div className="grid grid-cols-4 gap-2 fixed bottom-0 left-0 w-full mb-16">
