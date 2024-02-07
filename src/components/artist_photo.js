@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function ArtistPhoto() {
-  const [artistName, setArtistName] = useState('kanye');
+function ArtistPhoto({ artistName }) {
   const [artistPhoto, setArtistPhoto] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -12,14 +11,14 @@ function ArtistPhoto() {
         const response = await fetch(
           `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&generator=prefixsearch&gpssearch=${encodeURIComponent(
             artistName
-          )}&formatversion=2&pithumbsize=300`
+          )}&formatversion=2&pithumbsize=300&redirects=1&gcmtitle=Category:Musicians|Category:Bands`
         );
         const data = await response.json();
         const pages = data.query.pages;
         if (pages.length === 0 || pages[0].missing) {
           setArtistPhoto('');
         } else {
-          setArtistPhoto(pages[0].thumbnail.source);
+          setArtistPhoto(pages[0].thumbnail?.source || ''); // Use optional chaining to handle missing thumbnails
         }
       } catch (error) {
         console.error('Error fetching data:', error);

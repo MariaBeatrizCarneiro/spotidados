@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-const MusicAlbumArt = ({ musicName }) => {
-  const [albumArtUrl, setAlbumArtUrl] = useState("Graduation");
+const MusicAlbumArt = ({ albumName }) => {
+  const [albumArtUrl, setAlbumArtUrl] = useState("");
 
   useEffect(() => {
     const fetchAlbumArt = async () => {
       try {
-        const response = await fetch(`https://musicbrainz.org/ws/2/release/?query=${encodeURIComponent(musicName)}&fmt=json`);
+        const response = await fetch(`https://musicbrainz.org/ws/2/release/?query=release:${encodeURIComponent(albumName)}&fmt=json`);
         const data = await response.json();
         if (data.releases && data.releases.length > 0) {
           const releaseId = data.releases[0].id;
@@ -23,7 +23,7 @@ const MusicAlbumArt = ({ musicName }) => {
 
     fetchAlbumArt();
 
-  }, [musicName]);
+  }, [albumName]);
 
   return (
     <div>
