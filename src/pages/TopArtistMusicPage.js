@@ -9,8 +9,13 @@ export function TopArtistMusicPage({onChangePage}) {
     const handleInputChange = (event) => { setArtista(event.target.value); };
 
     return (
-      <div className="page">
-        <p className="mb-2 text-lg">Insira o nome do artista:</p>
+        <div className="page">
+            <div className="fixed w-full bg-white z-10 text-center">
+            <p className="text-lg ">Top #20:</p>
+            <p>{periodo}</p>
+        </div>
+
+        <p className="mb-2 text-lg" style={{ paddingTop: "70px" }}>Insira o nome do artista:</p>
         <input list="artistas" type="text" value={artista} onChange={handleInputChange} className="mb-4 p-2 border border-gray-300 rounded-md" />
         <datalist id="artistas">
             {artistNamesArr().map((artista) => (
@@ -18,7 +23,6 @@ export function TopArtistMusicPage({onChangePage}) {
             ))}
         </datalist>
         
-        <p className="mb-2 text-lg">Top 20 músicas por artista em ms:</p>
         <p>{topVinteMusicasPorArtista(periodo, artista)}</p>
 
         <div style={{ paddingTop: "1rem" }}>
