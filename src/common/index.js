@@ -30,7 +30,7 @@ export function mediaTempoDiario() {
 export function horaMaisOuvida() {
     const horas = history.map(e => {
         const tempo = new Date(e.ts)
-        return tempo.getHours();
+        return tempo.getUTCHours();
     });
 
     const contagemHoras = {};

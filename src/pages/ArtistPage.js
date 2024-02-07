@@ -15,13 +15,13 @@ export function ArtistPage({ onChangePage }) {
           <option key={artista} value={artista} />
         ))}
       </datalist>
-
-      <p className="mb-2 text-lg">Número de plays do artista: {artista != "" ? numPlaysArtista(artista) : ""}</p>
-      <p className="mb-2 text-lg">Número de músicas diferentes do artista: {artista != "" ? musicasDiferentesArtista(artista) : ""}</p>
-      <p className="mb-2 text-lg">Minutos ouvidos do artista: {artista != "" ? minutosOuvidosArtista(artista) : ""}</p>
-      <p className="mb-2 text-lg">Percentagem de plays que são do artista: {artista != "" ? `${playsDoArtista(artista)}%` : ""}</p>
-      <p className="mb-2 text-lg">Posição do artista no top 100: {artista != "" ? posicaoTopCemArtista(artista) == 0 ? `${artista} não está no teu top 100!` : posicaoTopCemArtista(artista) : ""}</p>
-      <p className="mb-2 text-lg">Estação do ano em que o artista é mais ouvido: {artista != "" ? artistaEstacaoMaisOuvida(artista) : ""}</p>
+      {artistNamesArr().indexOf(artista) != -1 ? <div>
+        <p className="mb-2 text-lg">Número de plays do artista: {numPlaysArtista(artista)}</p>
+        <p className="mb-2 text-lg">Número de músicas diferentes do artista: {musicasDiferentesArtista(artista)}</p>
+        <p className="mb-2 text-lg">Minutos ouvidos do artista: {minutosOuvidosArtista(artista)}</p>
+        <p className="mb-2 text-lg">Percentagem de plays que são do artista: {`${playsDoArtista(artista)}%`}</p>
+        <p className="mb-2 text-lg">Posição do artista no top 100: {posicaoTopCemArtista(artista) !== 0 ? posicaoTopCemArtista(artista) : `${artista} não está no teu top 100!`}</p>
+        <p className="mb-2 text-lg">Estação do ano em que o artista é mais ouvido: {artistaEstacaoMaisOuvida(artista)}</p></div> : ""}
 
       <Menu onChangePage={onChangePage} />
       <div className="mb-16"></div>
