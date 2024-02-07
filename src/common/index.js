@@ -200,3 +200,14 @@ export function artistaEstacaoMaisOuvida(artista) {
 
     return stringEstacoes[tempoEstacoes.indexOf(Math.max(...tempoEstacoes))]
 }
+
+
+export function artistNamesArr() {
+    let uniqueArtistNames = new Set();
+    history.forEach(function(item) {
+        uniqueArtistNames.add(item.master_metadata_album_artist_name);
+    });
+    return Array.from(uniqueArtistNames);
+}
+
+
