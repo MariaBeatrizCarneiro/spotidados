@@ -1,6 +1,7 @@
 import React from "react";
 import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida } from "../common/index.js";
 import {Menu} from "./Menu";
+import ArtistPhoto from "../components/artist_photo.js";
 
 export function HomePage({onChangePage}) {
     return (
@@ -12,6 +13,8 @@ export function HomePage({onChangePage}) {
         <p className="mb-2 text-lg">Hora mais ouvida: { horaMaisOuvida() }.</p>
         <p className="mb-2 text-lg">Estação do ano que mais ouve música: { estacaoMaisOuvida() }.</p>
         
+      <ArtistPhoto />
+
         <Menu onChangePage={onChangePage} />
         <div className="mb-16"></div>
       </div>
