@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { topCemArtistas } from "../common/index.js";
 import { Menu } from "./Menu";
+import ArtistPhoto from "../components/artist_photo.js";
+import MusicAlbumArt from "../components/album.js";
 
 export function TopArtistPage({ onChangePage, currentPage }) {
     const [periodo, setPeriodo] = useState("sempre");

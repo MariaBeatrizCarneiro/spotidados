@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { topVinteMusicasPorArtista } from "../common/index.js";
 import { Menu } from "./Menu";
+import ArtistPhoto from "../components/artist_photo.js";
+import MusicAlbumArt from "../components/album.js";
 
 export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
     const [periodo, setPeriodo] = useState("sempre");
@@ -21,6 +23,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
             </div>
 
             <p>{topVinteMusicasPorArtista(periodo, artista)}</p>
+            <ArtistPhoto artistName={selectedArtist} />
 
             <div style={{ paddingTop: "1rem" }}>
                 <div className="grid grid-cols-4 gap-2 fixed bottom-0 left-0 w-full mb-16">
