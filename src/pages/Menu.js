@@ -7,7 +7,6 @@ export function Menu({ onChangePage }) {
         <li><button className="text-white hover:underline" onClick={() => onChangePage("index")}>Home</button></li>
         <li><button className="text-white hover:underline" onClick={() => onChangePage("top-musica")}>Top</button></li>
         <li><button className="text-white hover:underline" onClick={() => onChangePage("artista")}>Artista</button></li>
-        <li><button className="text-white hover:underline" onClick={() => onChangePage("top-20")}>Top 20</button></li>
       </ul>
     </nav>
   );

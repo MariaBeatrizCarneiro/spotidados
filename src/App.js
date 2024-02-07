@@ -10,7 +10,8 @@ import { TopArtistMusicPage } from "./pages/TopArtistMusicPage";
 
 function App() {
   const [paginaAtual, setPaginaAtual] = useState("index");
-  const onChangePage = (page) => { setPaginaAtual(page); };
+  const [selectedArtist, setSelectedArtist] = useState("");
+  const onChangePage = (page, artist) => { setPaginaAtual(page); setSelectedArtist(artist);};
 
   const paginas = {
     "index": <HomePage onChangePage={onChangePage} />,
