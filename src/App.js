@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import HomePage from "./pages/HomePage";
-import TopArtistPage from "./pages/TopArtistPage";
-import TopMusicPage from "./pages/TopMusicPage";
-import ArtistPage from "./pages/ArtistPage";
-import TopArtistMusicPage from "./pages/TopArtistMusicPage";
+import { HomePage, TopArtistPage, TopMusicPage, ArtistPage, TopArtistMusicPage } from "./pages";
 
 function App() {
   const [paginaAtual, setPaginaAtual] = useState("index");
