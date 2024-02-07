@@ -1,21 +1,21 @@
 import history from "../assets/data/history.json"
 
 export const numeroDePlays = () => {
-    return history.length;
+    return history.filter((e) => e.master_metadata_track_name != null).length;
 }
 
 export function musicasDiferentes() {
-    const trackNames = history.map(e => {
-        return e.master_metadata_track_name;
-    });
+    const trackNames = history.map(e => e.master_metadata_track_name);
     const uniqueSongs = new Set(trackNames);
     return uniqueSongs.size;
 }
 
 export function minutosTotaisOuvidos() {
-    const total = history.reduce((acc, current) => {
-        return acc += current.ms_played / (1000 * 60);
-    }, 0);
+    const total = history.reduce((acc, current) => (
+        current.master_metadata_track_name != null ?
+            acc += current.ms_played / (1000 * 60) :
+            acc
+    ), 0);
     return Math.round(total);
 }
 
@@ -29,8 +29,11 @@ export function mediaTempoDiario() {
 
 export function horaMaisOuvida() {
     const horas = history.map(e => {
-        const tempo = new Date(e.ts)
-        return tempo.getUTCHours();
+
+        if (e.master_metadata_track_name != null) {
+            const tempo = new Date(e.ts)
+            return tempo.getUTCHours();
+        }
     });
 
     const contagemHoras = {};
@@ -73,10 +76,13 @@ export function estacaoMaisOuvida() {
     const stringEstacoes = ["Primavera", "Verão", "Outono", "Inverno"];
 
     const tempoEstacoes = history.reduce((tempoEstacoes, current) => {
-        const data = new Date(current.ts);
-        const estacao = estacaoDoAno(data);
-        tempoEstacoes[estacao] += current.ms_played;
-        return tempoEstacoes;
+        if (current.master_metadata_track_name != null) {
+            const data = new Date(current.ts);
+            const estacao = estacaoDoAno(data);
+            tempoEstacoes[estacao] += current.ms_played;
+            return tempoEstacoes;
+        }
+        return tempoEstacoes
     }, [0, 0, 0, 0]);
 
     return stringEstacoes[tempoEstacoes.indexOf(Math.max(...tempoEstacoes))]
@@ -84,6 +90,7 @@ export function estacaoMaisOuvida() {
 
 export function topCemArtistas(intervalo) {
     const artistas = filtraPorIntervaloDeTempo(intervalo).reduce((acc, e) => {
+
         return acc.has(e.master_metadata_album_artist_name) ?
             acc.set(e.master_metadata_album_artist_name, acc.get(e.master_metadata_album_artist_name) + 1) :
             acc.set(e.master_metadata_album_artist_name, 1)
