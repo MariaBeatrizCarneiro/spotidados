@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { numPlaysArtista, musicasDiferentesArtista, minutosOuvidosArtista, playsDoArtista, posicaoTopCemArtista, artistaEstacaoMaisOuvida, artistNamesArr } from "../common/index";
-import Menu from "./Menu";
+import {Menu} from "./Menu";
 
-export default function ArtistPage({onChangePage}) {
+export function ArtistPage({onChangePage}) {
   const [artista, setArtista] = useState("");
   const handleInputChange = (event) => { setArtista(event.target.value); };
 

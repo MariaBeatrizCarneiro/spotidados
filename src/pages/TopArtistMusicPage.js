@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { topVinteMusicasPorArtista, artistNamesArr } from "../common/index.js";
-import Menu from "./Menu";
+import {Menu} from "./Menu";
 
-export default function TopArtistMusicPage({onChangePage}) {
+export function TopArtistMusicPage({onChangePage}) {
     const [periodo, setPeriodo] = useState("sempre");
     const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
     const [artista, setArtista] = useState("");

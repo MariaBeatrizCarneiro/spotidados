@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { topCemArtistas } from "../common/index.js";
-import Menu from "./Menu";
+import {Menu} from "./Menu";
 
-export default function TopArtistPage({onChangePage}) {
+export function TopArtistPage({onChangePage}) {
     const [periodo, setPeriodo] = useState("sempre");
     const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
     

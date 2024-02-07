@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Menu({ onChangePage }) {
+export function Menu({ onChangePage }) {
   return (
     <nav className="fixed bottom-0 left-0 w-full bg-gray-800 p-4">
       <ul className="flex justify-between items-center">

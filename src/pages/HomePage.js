@@ -1,8 +1,8 @@
 import React from "react";
 import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida } from "../common/index.js";
-import Menu from "./Menu";
+import {Menu} from "./Menu";
 
-export default function HomePage({onChangePage}) {
+export function HomePage({onChangePage}) {
     return (
       <div className="page" >
         <p className="mb-2 text-lg">Número de plays no total: { numeroDePlays() }.</p>
