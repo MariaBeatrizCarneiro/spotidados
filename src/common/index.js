@@ -1,29 +1,29 @@
 import history from "../assets/data/history.json"
 
 export const numeroDePlays = () => {
-  return history.length;
+    return history.length;
 }
 
 export function musicasDiferentes() {
-  const trackNames = history.map(e => {
-    return e.master_metadata_track_name;
-  });
-  const uniqueSongs = new Set(trackNames); 
-  return uniqueSongs.size; 
+    const trackNames = history.map(e => {
+        return e.master_metadata_track_name;
+    });
+    const uniqueSongs = new Set(trackNames);
+    return uniqueSongs.size;
 }
 
-export function minutosTotaisOuvidos(){
-  const total = history.reduce((acc, current) => {
-   return acc+=current.ms_played / (1000 * 60);
-  }, 0);
-  return Math.round(total);
+export function minutosTotaisOuvidos() {
+    const total = history.reduce((acc, current) => {
+        return acc += current.ms_played / (1000 * 60);
+    }, 0);
+    return Math.round(total);
 }
 
-export function mediaTempoDiario(){
-  const primeiroDia = new Date(history[0].ts);
-  const ultimoDia = new Date(history[history.length-1].ts);
-  const diasOuvidos = (ultimoDia.getTime() - primeiroDia.getTime()) / (1000 * 3600 * 24);
-  return Math.floor(minutosTotaisOuvidos() / diasOuvidos);
+export function mediaTempoDiario() {
+    const primeiroDia = new Date(history[0].ts);
+    const ultimoDia = new Date(history[history.length - 1].ts);
+    const diasOuvidos = (ultimoDia.getTime() - primeiroDia.getTime()) / (1000 * 3600 * 24);
+    return Math.floor(minutosTotaisOuvidos() / diasOuvidos);
 }
 
 
@@ -31,7 +31,7 @@ export function horaMaisOuvida() {
     const horas = history.map(e => {
         const tempo = new Date(e.ts)
         return tempo.getHours();
-      });
+    });
 
     const contagemHoras = {};
     horas.forEach(hora => {
@@ -84,9 +84,9 @@ export function estacaoMaisOuvida() {
 
 export function topCemArtistas(intervalo) {
     const artistas = filtraPorIntervaloDeTempo(intervalo).reduce((acc, e) => {
-       return acc.has(e.master_metadata_album_artist_name) ?
-       acc.set(e.master_metadata_album_artist_name, acc.get(e.master_metadata_album_artist_name) + 1) :
-       acc.set(e.master_metadata_album_artist_name, 1)
+        return acc.has(e.master_metadata_album_artist_name) ?
+            acc.set(e.master_metadata_album_artist_name, acc.get(e.master_metadata_album_artist_name) + 1) :
+            acc.set(e.master_metadata_album_artist_name, 1)
     }, new Map());
 
     const sortedArtistas = [...artistas].sort((a, b) => b[1] - a[1]);
@@ -102,7 +102,7 @@ export function filtraPorIntervaloDeTempo(intervalo) {
     if (intervalo == "últimoAno") tempo = 365.25 * 24 * 3600 * 1000;
 
     const dataAtual = new Date();
-    
+
     const historyFilter = history.filter((e) => {
         const data = new Date(e.ts)
         return data.getTime() > (dataAtual.getTime() - tempo)
@@ -114,12 +114,12 @@ export function filtraPorIntervaloDeTempo(intervalo) {
 
 export function topCemMusicas(intervalo) {
     const musicas = filtraPorIntervaloDeTempo(intervalo).reduce((acc, e) => {
-       return acc.has(e.master_metadata_track_name) ?
-       acc.set(e.master_metadata_track_name, [acc.get(e.master_metadata_track_name) + e.ms_played, e.master_metadata_album_artist_name]) :
-       acc.set(e.master_metadata_track_name, [e.ms_played, e.master_metadata_album_artist_name])
+        return acc.has(e.master_metadata_track_name) ?
+            acc.set(e.master_metadata_track_name, [acc.get(e.master_metadata_track_name) + e.ms_played, e.master_metadata_album_artist_name]) :
+            acc.set(e.master_metadata_track_name, [e.ms_played, e.master_metadata_album_artist_name])
     }, new Map());
 
-    const sortedMusicas= [...musicas].sort((a, b) => b[1][0] - a[1][0]);
+    const sortedMusicas = [...musicas].sort((a, b) => b[1][0] - a[1][0]);
 
     return sortedMusicas.slice(0, 100).map(item => item[0] + " - " + item[1][1]);
 }
@@ -133,17 +133,17 @@ export function musicasDiferentesArtista(artista) {
     const arrArtista = history.filter((e) => e.master_metadata_album_artist_name == artista);
     const trackNames = arrArtista.map(e => {
         return e.master_metadata_track_name;
-      });
-      const uniqueSongs = new Set(trackNames); 
-      return uniqueSongs.size;
+    });
+    const uniqueSongs = new Set(trackNames);
+    return uniqueSongs.size;
 }
 
 export function minutosOuvidosArtista(artista) {
     const arrArtista = history.filter((e) => e.master_metadata_album_artist_name == artista);
     const total = arrArtista.reduce((acc, current) => {
-        return acc+=current.ms_played / (1000 * 60);
-       }, 0);
-       return Math.round(total);
+        return acc += current.ms_played / (1000 * 60);
+    }, 0);
+    return Math.round(total);
 }
 
 export function playsDoArtista(artista) {
@@ -153,12 +153,12 @@ export function playsDoArtista(artista) {
 
 export function topVinteMusicasPorArtista(intervalo, artista) {
     const musicas = filtraPorIntervaloDeTempoPorArtista(intervalo, artista).reduce((acc, e) => {
-       return acc.has(e.master_metadata_track_name) ?
-       acc.set(e.master_metadata_track_name, [acc.get(e.master_metadata_track_name) + e.ms_played, e.master_metadata_album_album_name]) :
-       acc.set(e.master_metadata_track_name, [e.ms_played, e.master_metadata_album_album_name])
+        return acc.has(e.master_metadata_track_name) ?
+            acc.set(e.master_metadata_track_name, [acc.get(e.master_metadata_track_name) + e.ms_played, e.master_metadata_album_album_name]) :
+            acc.set(e.master_metadata_track_name, [e.ms_played, e.master_metadata_album_album_name])
     }, new Map());
 
-    const sortedMusicas= [...musicas].sort((a, b) => b[1][0] - a[1][0]);
+    const sortedMusicas = [...musicas].sort((a, b) => b[1][0] - a[1][0]);
 
     return sortedMusicas.slice(0, 20).map(item => item[0] + " - " + item[1][1]);
 }
@@ -172,7 +172,7 @@ export function filtraPorIntervaloDeTempoPorArtista(intervalo, artista) {
     if (intervalo == "últimoAno") tempo = 365.25 * 24 * 3600 * 1000;
 
     const dataAtual = new Date();
-    
+
     const historyFilter = arrArtista.filter((e) => {
         const data = new Date(e.ts)
         return data.getTime() > (dataAtual.getTime() - tempo)
@@ -183,7 +183,7 @@ export function filtraPorIntervaloDeTempoPorArtista(intervalo, artista) {
 
 export function posicaoTopCemArtista(artista) {
     const topArtistas = topCemArtistas("sempre");
-    return topArtistas.indexOf(artista)+1;
+    return topArtistas.indexOf(artista) + 1;
 }
 
 export function artistaEstacaoMaisOuvida(artista) {
@@ -202,10 +202,11 @@ export function artistaEstacaoMaisOuvida(artista) {
 
 export function artistNamesArr() {
     let uniqueArtistNames = new Set();
-    history.forEach(function(item) {
+
+    history.forEach(function (item) {
         uniqueArtistNames.add(item.master_metadata_album_artist_name);
     });
-    return Array.from(uniqueArtistNames);
+    return Array.from(uniqueArtistNames).sort((a, b) => a > b ? 1 : -1);
 }
 
 
