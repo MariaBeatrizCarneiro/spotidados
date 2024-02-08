@@ -1,6 +1,6 @@
 import React from "react";
 import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida } from "../common/index.js";
-import { Menu } from "./Menu";
+import { Menu } from "../components/Menu.js";
 import ArtistPhoto from "../components/artist_photo.js";
 import MusicAlbumArt from "../components/album.js";
 import LogoWithText from "../components/toplogo.js";
