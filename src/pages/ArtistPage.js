@@ -35,10 +35,10 @@ export function ArtistPage({ onChangePage }) {
       ): null}
 
       {artistNamesArr().indexOf(artista) !== -1 ? (
-        <div className="flex-grow bg-lightgrey" style={{ paddingTop: "100px"}}>
+        <div className="flex-grow bg-lightgrey" style={{ paddingTop: "80px"}}>
           <ArtistPhoto artistName={artista} />
 
-          <div className="grid grid-cols-3 items-center">
+          <div className="grid grid-cols-3 items-center px-6">
             <p className="col-span-2 font-PressStart2p text-black">{artista}</p>
             <button onClick={handleTop20Click} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue`}>Top #20</button>
           </div>
@@ -50,7 +50,7 @@ export function ArtistPage({ onChangePage }) {
             </div>
 
             <div className="border-2 border-black p-5 shadow-lg">
-              <p className="font-PressStart2p text-xxs text-blue mb-2 ">#{posicaoTopCemArtista(artista) !== 0 ? posicaoTopCemArtista(artista) : `${artista} não está no teu top 100!`}</p>
+              <p className="font-PressStart2p text-xxs text-blue mb-2 ">#{posicaoTopCemArtista(artista) !== 0 ? posicaoTopCemArtista(artista) : `0`}</p>
               <p className="font-JetbrainsMono text-sm font-semibold">posição deste artista no teu top #100</p>
             </div>
 
