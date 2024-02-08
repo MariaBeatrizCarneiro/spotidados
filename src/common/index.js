@@ -165,9 +165,9 @@ export function topVinteMusicasPorArtista(intervalo, artista) {
             acc.set(e.master_metadata_track_name, [e.ms_played, e.master_metadata_album_album_name])
     }, new Map());
 
-    const sortedMusicas = [...musicas].sort((a, b) => b[1][0] - a[1][0]);
+    const sortedMusicas = [...musicas].sort((a, b) => b[1][0] - a[1][0])
 
-    return sortedMusicas.slice(0, 20).map(item => item[0] + " - " + item[1][1]);
+    return sortedMusicas.slice(0, 20).map((ele) => [ele[0], ele[1][1]]);
 }
 
 export function filtraPorIntervaloDeTempoPorArtista(intervalo, artista) {
