@@ -5,11 +5,11 @@ import LogoWithText from "../components/toplogo.js";
 
 export function TopPage({ onChangePage }) {
   const [periodo, setPeriodo] = useState("sempre");
-  const [exibirArtistas, setExibirArtistas] = useState(true);
+  const [exibirArtistas, setExibirArtistas] = useState(false);
   const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
 
   return (
-    <div className="page bg-lightgrey">
+    <div className="bg-lightgrey">
       <LogoWithText />
       <div style={{ paddingTop: "65px" }} ></div>
 

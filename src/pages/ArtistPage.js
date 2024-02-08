@@ -50,7 +50,7 @@ export function ArtistPage({ onChangePage }) {
             </div>
 
             <div className="border-2 border-black p-5 shadow-lg">
-              <p className="font-PressStart2p text-xxs text-blue mb-2 ">#{posicaoTopCemArtista(artista) !== 0 ? posicaoTopCemArtista(artista) : `${artista} não está no teu top 100!`}</p>
+              <p className="font-PressStart2p text-xxs text-blue mb-2 ">#{posicaoTopCemArtista(artista) !== 0 ? posicaoTopCemArtista(artista) : `0`}</p>
               <p className="font-JetbrainsMono text-sm font-semibold">posição deste artista no teu top #100</p>
             </div>
 
