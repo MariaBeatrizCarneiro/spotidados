@@ -11,7 +11,6 @@ export function ArtistPage({ onChangePage }) {
 
   const handleTop20Click = () => {
     if (artista !== "") {
-      console.log(artista);
       onChangePage("top-20", artista);
     }
   };
