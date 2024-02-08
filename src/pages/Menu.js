@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as HomeIcon } from "../assets/share.svg";
+import { ReactComponent as HomeIcon } from "../assets/profile_pic.svg";
 import { ReactComponent as TopIcon } from "../assets/settings.svg";
 import { ReactComponent as SearchIcon } from "../assets/search.svg";
 
@@ -10,7 +10,7 @@ export function Menu({ onChangePage }) {
       <ul className="flex justify-between items-center">
         <li>
           <button className="text-white hover:underline" onClick={() => onChangePage("index")}>
-            <HomeIcon width="24" height="24" />
+            <HomeIcon width="40" height="40" />
           </button>
         </li>
         <li>
