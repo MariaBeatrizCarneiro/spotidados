@@ -7,8 +7,8 @@ import { TopArtistMusicPage } from "./pages/TopArtistMusicPage";
 function App() {
   const [paginaAtual, setPaginaAtual] = useState("index");
   const [selectedArtist, setSelectedArtist] = useState("");
-  const onChangePage = (page, artist) => { 
-    setPaginaAtual(page); 
+  const onChangePage = (page, artist) => {
+    setPaginaAtual(page);
     setSelectedArtist(artist);
   };
 

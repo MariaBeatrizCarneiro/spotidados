@@ -17,7 +17,7 @@ export function ArtistPage({ onChangePage }) {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-lightgrey p-5">
+    <div className="flex flex-col h-screen bg-lightgrey">
       <LogoWithText />
 
       {artistNamesArr().indexOf(artista) === -1 ? (
@@ -35,7 +35,7 @@ export function ArtistPage({ onChangePage }) {
       ): null}
 
       {artistNamesArr().indexOf(artista) !== -1 ? (
-        <div className="flex-grow" style={{ paddingTop: "100px"}}>
+        <div className="flex-grow bg-lightgrey" style={{ paddingTop: "100px"}}>
           <ArtistPhoto artistName={artista} />
 
           <div className="grid grid-cols-3 items-center">
@@ -43,12 +43,37 @@ export function ArtistPage({ onChangePage }) {
             <button onClick={handleTop20Click} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue`}>Top #20</button>
           </div>
 
-          <p className="mt-5 mb-2 text-lg">Número de plays do artista: {numPlaysArtista(artista)}</p>
-          <p className="mb-2 text-lg">Número de músicas diferentes do artista: {musicasDiferentesArtista(artista)}</p>
-          <p className="mb-2 text-lg">Minutos ouvidos do artista: {minutosOuvidosArtista(artista)}</p>
-          <p className="mb-2 text-lg">Percentagem de plays que são do artista: {`${playsDoArtista(artista)}%`}</p>
-          <p className="mb-2 text-lg">Posição do artista no top 100: {posicaoTopCemArtista(artista) !== 0 ? posicaoTopCemArtista(artista) : `${artista} não está no teu top 100!`}</p>
-          <p className="mb-2 text-lg">Estação do ano em que o artista é mais ouvido: {artistaEstacaoMaisOuvida(artista)}</p>
+          <div className="grid grid-cols-2 grid-rows-3 gap-3 p-6" style={{ paddingBottom: "100px"}}>
+            <div className="border-2 border-black p-5 shadow-lg">
+              <p className="font-PressStart2p text-xxs text-blue mb-2 ">{numPlaysArtista(artista)}</p>
+              <p className="font-JetbrainsMono text-sm font-semibold">vezes que ouviste este artista</p>
+            </div>
+
+            <div className="border-2 border-black p-5 shadow-lg">
+              <p className="font-PressStart2p text-xxs text-blue mb-2 ">#{posicaoTopCemArtista(artista) !== 0 ? posicaoTopCemArtista(artista) : `${artista} não está no teu top 100!`}</p>
+              <p className="font-JetbrainsMono text-sm font-semibold">posição deste artista no teu top #100</p>
+            </div>
+
+            <div className="border-2 border-black p-5 shadow-lg">
+              <p className="font-PressStart2p text-xxs text-blue mb-2 ">{minutosOuvidosArtista(artista)}</p>
+              <p className="font-JetbrainsMono text-sm font-semibold">minutos que passaste a ouvir este artista</p>
+            </div>
+
+            <div className="border-2 border-black p-5 shadow-lg">
+              <p className="font-PressStart2p text-xxs text-blue mb-2 ">{artistaEstacaoMaisOuvida(artista)}</p>
+              <p className="font-JetbrainsMono text-sm font-semibold">estação do ano que mais ouves música este artista</p>
+            </div>
+
+            <div className="border-2 border-black p-5 shadow-lg">
+              <p className="font-PressStart2p text-xxs text-blue mb-2 ">{musicasDiferentesArtista(artista)}</p>
+              <p className="font-JetbrainsMono text-sm font-semibold">número de músicas diferentes que já ouviste deste artista</p>
+            </div>
+
+            <div className="border-2 border-black p-5 shadow-lg">
+              <p className="font-PressStart2p text-xxs text-blue mb-2 ">{`${playsDoArtista(artista)}%`}</p>
+              <p className="font-JetbrainsMono text-sm font-semibold">percentagem deste artista nas tuas plays</p>
+            </div>
+          </div>
         </div>
       ): null}
 

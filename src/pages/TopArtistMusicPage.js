@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { topVinteMusicasPorArtista } from "../common/index.js";
+import { MusicAlbumArt, topVinteMusicasPorArtista } from "../common/index.js";
 import { Menu } from "../components/Menu.js";
-import MusicAlbumArt from "../components/album.js";
 import LogoWithText from "../components/toplogo.js";
+import musicaLogo from "../assets/musica.png"
 
 
 export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
@@ -13,11 +13,46 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
     const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
 
     useEffect(() => {
+
         setArtista(selectedArtist);
-        setTopVinte(topVinteMusicasPorArtista(periodo, selectedArtist))
+
+        const musicas = topVinteMusicasPorArtista(periodo, artista)
+
+        const fetchAlbumArt = async (album) => {
+            try {
+                const response = await fetch(`https://musicbrainz.org/ws/2/release/?query=release:${encodeURIComponent(album)}&fmt=json`);
+
+                if (response.status !== 200) throw "NOT FOUD"
+                const data = await response.json();
+                if (data.releases && data.releases.length > 0) {
+                    const releaseId = data.releases[0].id;
+                    const coverResponse = await fetch(`https://coverartarchive.org/release/${releaseId}`);
+                    const coverData = await coverResponse.json();
+                    if (coverData.images && coverData.images.length > 0) {
+                        return coverData.images[0].image;
+                    }
+                }
+            } catch (error) {
+                // console.error('Error fetching album art:', error);
+            }
+        };
+
+        async function fetchAndSaveAlbumArts() {
+            const result = musicas.map(async e => [...e, await fetchAlbumArt(e[1])])
+            Promise.all(result).then((res) => {
+                console.log(res)
+                setTopVinte(res)
+            })
+        }
+
+        fetchAndSaveAlbumArts()
+
     }, [selectedArtist]);
 
-    const fetchMusicAlbumArt = (album) => MusicAlbumArt(album)
+    useEffect(() => {
+
+
+    }, [topVinte])
 
 
     return (
@@ -29,7 +64,11 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
             </div>
 
             <ol className="pt-16">
-                {topVinte.map((ele, index) => <li className="border-2 flex align-middle flex-row m-2"><span className="border-r-green border text-blue font-PressStart2p align-text-middle">{index + 1}#</span>Musica: {ele[0]}<br />Album: {ele[1]}</li>)}
+                {topVinte.map((ele, index) => <li className="border-2 flex items-center flex-nowrap m-2">
+                    <p className="text-blue font-PressStart2p align-text-middle align-text-bottom p-4 w-14">{index + 1}#</p>
+                    <div className="mx-5 h-12 w-12 bg-contain" style={{ backgroundImage: `url(${ele[2] ? ele[2] : musicaLogo})` }} />
+                    <p>{ele[0]}<br /> <span className="text-xxs">{ele[1]}</span></p>
+                </li>)}
             </ol>
 
 
