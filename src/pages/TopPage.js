@@ -11,7 +11,7 @@ export function TopPage({ onChangePage }) {
   return (
     <div className="bg-lightgrey">
       <LogoWithText />
-      <div style={{ paddingTop: "65px" }} ></div>
+      <div style={{ paddingTop: "50px" }} ></div>
 
       <div className="fixed w-full z-10 text-center bg-lightgrey">
         <p className="text-lg">Top #100:</p>
@@ -35,7 +35,6 @@ export function TopPage({ onChangePage }) {
               </div>
           ))
         }
-        {/* .map(item => item[0] + " - " + item[1][1]) */}
       </p>
 
       <div style={{ paddingTop: "1rem" }}>

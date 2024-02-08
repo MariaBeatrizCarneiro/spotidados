@@ -46,7 +46,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
     return (
         <div className="bg-lightgrey h-dvh w-dvw">
             <LogoWithText />
-            <div style={{ paddingTop: "65px" }} ></div>
+            <div style={{ paddingTop: "50px" }} ></div>
 
             <div className="fixed w-full bg-white z-10 text-center bg-lightgrey">
                 <p className="text-lg">Top #20:</p>
