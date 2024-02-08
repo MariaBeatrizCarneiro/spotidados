@@ -19,7 +19,7 @@ export function ArtistPage({ onChangePage }) {
   };
 
   return (
-    <div className="page">
+    <div className="page bg-lightgrey">
       <LogoWithText />
       {artistNamesArr().indexOf(artista) == -1 ? (
         <div className="text-center" style={{ paddingTop: "20rem" }}>
@@ -34,10 +34,10 @@ export function ArtistPage({ onChangePage }) {
       ) : null}
 
       {artistNamesArr().indexOf(artista) !== -1 ? (
-        <div>
-          <button onClick={handleTop20Click} className={`px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600`}>Top 20 músicas do {artista}</button>
+        <div style={{ paddingTop: "100px"}}>
+          <button onClick={handleTop20Click} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue`}>Top 20 músicas do {artista}</button>
           <ArtistPhoto artistName={artista} />
-          <p className="mb-2 text-lg">Número de plays do artista: {numPlaysArtista(artista)}</p>
+          <p className="mt-5 mb-2 text-lg">Número de plays do artista: {numPlaysArtista(artista)}</p>
           <p className="mb-2 text-lg">Número de músicas diferentes do artista: {musicasDiferentesArtista(artista)}</p>
           <p className="mb-2 text-lg">Minutos ouvidos do artista: {minutosOuvidosArtista(artista)}</p>
           <p className="mb-2 text-lg">Percentagem de plays que são do artista: {`${playsDoArtista(artista)}%`}</p>
