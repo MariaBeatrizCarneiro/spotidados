@@ -1,7 +1,7 @@
 import React from "react";
-import { ReactComponent as HomeIcon } from "../assets/profile_pic.svg";
-import { ReactComponent as TopIcon } from "../assets/settings.svg";
-import { ReactComponent as SearchIcon } from "../assets/search.svg";
+import { ReactComponent as HomeIcon } from "../assets/home_logos/profile_pic.svg";
+import { ReactComponent as TopIcon } from "../assets/home_logos/trending.svg";
+import { ReactComponent as SearchIcon } from "../assets/home_logos/search2.svg";
 
 
 export function Menu({ onChangePage }) {
