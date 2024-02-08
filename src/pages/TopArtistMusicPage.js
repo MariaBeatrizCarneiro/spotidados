@@ -9,6 +9,7 @@ import LogoWithText from "../components/toplogo.js";
 export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
     const [periodo, setPeriodo] = useState("sempre");
     const [artista, setArtista] = useState(selectedArtist);
+    const [topVinte, setTopVinte] = useState()
 
     const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
 

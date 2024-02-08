@@ -6,8 +6,8 @@ module.exports = {
     colors: {
       'lightgrey': '#ECE7E7',
       'blue': '#3f3cbb',
-      'lighterblue': '#121063',
-      'green': '#565584',
+      'lighterblue': '#6277E4',
+      'green': '#6BCB4A',
       'black': '#000000'
     },
     fontFamily: {
