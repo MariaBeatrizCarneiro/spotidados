@@ -5,10 +5,14 @@ module.exports = {
     extend: {},
     colors: {
       'lightgrey': '#ffffff',
-      'blue': '#0228F0',
-      'lighterblue': '#6277E4',
+      'blue': '#3f3cbb',
+      'lighterblue': '#121063',
       'green': '#565584',
     },
+    fontFamily: {
+      "PressStart2p": ["'Press Start 2P'", "sans-serif"],
+      "JetbrainsMono": ["JetBrains Mono", "sans-serif"]
+    }
   },
   plugins: [],
 }
