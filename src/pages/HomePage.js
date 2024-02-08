@@ -22,7 +22,7 @@ export function HomePage({onChangePage}) {
 
 
       <MusicAlbumArt albumName="Jesus is King" />
-      <ArtistPhoto artistName="TOOL" />
+      
 
       <Menu onChangePage={onChangePage} />
       <div className="mb-16"></div>
