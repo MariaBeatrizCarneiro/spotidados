@@ -3,6 +3,8 @@ import { numPlaysArtista, musicasDiferentesArtista, minutosOuvidosArtista, plays
 import { Menu } from "./Menu";
 import ArtistPhoto from "../components/artist_photo.js";
 import MusicAlbumArt from "../components/album.js";
+import LogoWithText from "../components/toplogo.js";
+
 
 export function ArtistPage({ onChangePage }) {
   const [artista, setArtista] = useState("");
@@ -18,6 +20,7 @@ export function ArtistPage({ onChangePage }) {
 
   return (
     <div className="page">
+      <LogoWithText />
       {artistNamesArr().indexOf(artista) == -1 ? (
         <div className="text-center" style={{ paddingTop: "20rem" }}>
           <p className="mb-2 text-lg">Insira o nome do artista:</p>
