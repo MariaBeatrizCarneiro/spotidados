@@ -27,7 +27,7 @@ export function HomePage({ onChangePage }) {
             <h1 className="font-PressStart2p text-xl w-44">Wilson Felizardo</h1>
             <p className="font-JetbrainsMono text-xs text-green">Estoy usando el spotiDados. Dale!</p>
           </div>
-          <Wilson width="120" height="120"/>
+          <Wilson width="115" height="115"/>
         </div>
         <div className="flex items-center justify-between">
           <button className="border-black border-2 px-3 py-2 font-PressStart2p text-xxs">Editar Perfil</button>
