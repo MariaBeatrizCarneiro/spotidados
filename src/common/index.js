@@ -53,7 +53,7 @@ export function horaMaisOuvida() {
     modaHora = Number(modaHora);
     let segundaHora = modaHora + 1
     if (modaHora == 23) segundaHora = 0
-    return "Entre as " + String(modaHora) + "h e as " + String(segundaHora) + "h"
+    return "Das " + String(modaHora) + "h às " + String(segundaHora) + "h"
 }
 
 
@@ -214,6 +214,20 @@ export function artistNamesArr() {
         uniqueArtistNames.add(item.master_metadata_album_artist_name);
     });
     return Array.from(uniqueArtistNames).sort((a, b) => a > b ? 1 : -1);
+}
+
+export function formataData(data) {
+    let dia = data.getDate()
+    let mes = data.getMonth() + 1
+    let ano = data.getFullYear()
+
+    if (dia < 10){
+        dia = '0'+ dia
+    }
+    if (mes < 10) {
+        mes = '0'+ mes
+    }
+    return dia + '/' + mes + '/' + ano
 }
 
 

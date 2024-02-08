@@ -6,7 +6,7 @@ import { ReactComponent as SearchIcon } from "../assets/home_logos/search2.svg";
 
 export function Menu({ onChangePage }) {
   return (
-    <nav className="fixed bottom-0 left-0 w-full bg-lightgrey p-4">
+    <nav className="fixed bottom-0 left-0 w-full bg-greybar p-4">
       <ul className="flex justify-around items-center">
         <li className="mx-4">
           <button className="text-white hover:underline" onClick={() => onChangePage("index")}>

@@ -1,11 +1,12 @@
 import React from "react";
-import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida } from "../common/index.js";
+import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida, formataData } from "../common/index.js";
 import { Menu } from "../components/Menu.js";
 import { ReactComponent as HomeIcon } from "../assets/home_logos/profile_pic.svg";
 import ArtistPhoto from "../components/artist_photo.js";
 import MusicAlbumArt from "../components/album.js";
 import LogoWithText from "../components/toplogo.js";
 import logo from '../assets/logo.svg'
+import { ReactComponent as Calendar } from "../assets/icon _calendar.svg";
 
 export function HomePage({ onChangePage }) {
   return (
@@ -33,7 +34,12 @@ export function HomePage({ onChangePage }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 grid-rows-3 gap-3 m-6">
+      <div className="m-6 flex flex-wrap gap-2">
+        <Calendar />
+        <span className="font-JetbrainsMono font-extrabold text-blue text-xs">{formataData(new Date())}</span>
+      </div>
+
+      <div className="grid grid-cols-2 grid-rows-3 gap-3 mx-6">
 
         <div className="border-2 border-black p-5 shadow-lg">
           <p className="font-PressStart2p text-xxs text-blue mb-2 ">{numeroDePlays()}
@@ -56,7 +62,7 @@ export function HomePage({ onChangePage }) {
           <p className="font-JetbrainsMono text-sm font-semibold">é a estação que mais ouves música</p>
         </div>
         <div className="border-2 border-black p-5 shadow-lg">
-          <p className="font-PressStart2p text-xxs text-blue mb-2 ">{mediaTempoDiario()}
+          <p className="font-PressStart2p text-xxs text-blue mb-2 ">{mediaTempoDiario()} minutos
           </p>
           <p className="font-JetbrainsMono text-sm font-semibold">é a tua média diária a ouvir música</p>
         </div>
