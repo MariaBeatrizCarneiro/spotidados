@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { numPlaysArtista, musicasDiferentesArtista, minutosOuvidosArtista, playsDoArtista, posicaoTopCemArtista, artistaEstacaoMaisOuvida, artistNamesArr } from "../common/index";
 import { Menu } from "../components/Menu.js";
-import ArtistPhoto from "../components/artist_photo.js";
-import MusicAlbumArt from "../components/album.js";
 import LogoWithText from "../components/toplogo.js";
 
 export function ArtistPage({ onChangePage }) {
@@ -11,7 +9,6 @@ export function ArtistPage({ onChangePage }) {
 
   const handleTop20Click = () => {
     if (artista !== "") {
-      console.log(artista);
       onChangePage("top-20", artista);
     }
   };
@@ -39,10 +36,11 @@ export function ArtistPage({ onChangePage }) {
 
 //////////ARTIST PAGE////////////////////////
       {artistNamesArr().indexOf(artista) !== -1 ? (
-        <div className="flex-grow bg-lightgrey" style={{ paddingTop: "100px" }}>
+        <div className="flex-grow bg-lightgrey" style={{ paddingTop: "100px"}}>
           <div className="w-80 h-60 border-black border-2 maxw">
             <img src='https://variety.com/wp-content/uploads/2017/11/kendrick-lamar-variety-hitmakers.jpg?w=1000' />
           </div>
+
           <div className="grid grid-cols-3 items-center px-6">
             <p className="col-span-2 font-PressStart2p text-black">{artista}</p>
             <button onClick={handleTop20Click}

@@ -1,10 +1,6 @@
 import React from "react";
 import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida, formataData } from "../common/index.js";
 import { Menu } from "../components/Menu.js";
-import { ReactComponent as HomeIcon } from "../assets/home_logos/profile_pic.svg";
-import ArtistPhoto from "../components/artist_photo.js";
-import MusicAlbumArt from "../components/album.js";
-import LogoWithText from "../components/toplogo.js";
 import logo from '../assets/logo.svg'
 import { ReactComponent as Calendar } from "../assets/icon _calendar.svg";
 import { ReactComponent as Wilson } from "../assets/wilsonprofilepic.svg";
