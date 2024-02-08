@@ -38,7 +38,7 @@ export function ArtistPage({ onChangePage }) {
         <div className="flex-grow bg-lightgrey" style={{ paddingTop: "100px"}}>
           <ArtistPhoto artistName={artista} />
 
-          <div className="grid grid-cols-3 items-center">
+          <div className="grid grid-cols-3 items-center px-6">
             <p className="col-span-2 font-PressStart2p text-black">{artista}</p>
             <button onClick={handleTop20Click} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue`}>Top #20</button>
           </div>

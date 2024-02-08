@@ -7,6 +7,7 @@ import MusicAlbumArt from "../components/album.js";
 import LogoWithText from "../components/toplogo.js";
 import logo from '../assets/logo.svg'
 import { ReactComponent as Calendar } from "../assets/icon _calendar.svg";
+import { ReactComponent as Wilson } from "../assets/wilsonprofilepic.svg";
 
 export function HomePage({ onChangePage }) {
   return (
@@ -21,12 +22,12 @@ export function HomePage({ onChangePage }) {
       </div>
 
       <div className="mt-20 mx-6">
-        <div className="grid grid-cols-6">
+        <div className="grid grid-cols-6 mb-6">
           <div className="col-span-4">
             <h1 className="font-PressStart2p text-xl w-44">Wilson Felizardo</h1>
             <p className="font-JetbrainsMono text-xs text-green">Estoy usando el spotiDados. Dale!</p>
           </div>
-          <HomeIcon width="110" height="110" />
+          <Wilson width="115" height="115"/>
         </div>
         <div className="flex items-center justify-between">
           <button className="border-black border-2 px-3 py-2 font-PressStart2p text-xxs">Editar Perfil</button>
