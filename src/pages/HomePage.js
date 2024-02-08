@@ -15,8 +15,8 @@ export function HomePage({ onChangePage }) {
     <div className="page bg-lightgrey flex flex-col" >
 
       <div className="w-full">
-        <div className="flex items-center ml-3 mt-3 mb-2 fixed">
-          <img src= {logo} alt="Logo" className="w-12 h-12 mr-2" />
+        <div className="flex items-center pl-3 pt-3 pb-2 fixed">
+          <img src= {logo} alt="Logo" className="w-10 h-10 mr-2" />
           <span className="text-xs font-PressStart2p font-semibold ">Spotidados</span>
         </div>
       </div>
@@ -40,37 +40,37 @@ export function HomePage({ onChangePage }) {
         <span className="font-JetbrainsMono font-extrabold text-blue text-xs">{formataData(new Date())}</span>
       </div>
 
-      <div className="grid grid-cols-2 grid-rows-3 gap-3 mx-6 h-3/4">
+      <div className="grid grid-cols-2 grid-rows-3 gap-3 mx-6 mb-2 ">
 
         <div className="border-2 border-black p-5 shadow-lg">
           <p className="font-PressStart2p text-xxs text-blue mb-2 ">{numeroDePlays()}
           </p>
-          <p className="font-JetbrainsMono text-sm font-semibold">é o teu total de plays</p>
-        </div>
-        <div className="border-2 border-black p-5 shadow-lg">
-          <p className="font-PressStart2p text-xxs text-blue mb-2 ">{minutosTotaisOuvidos()}
-          </p>
-          <p className="font-JetbrainsMono text-sm font-semibold">são os minutos que passaste a ouvir música</p>
-        </div>
-        <div className="border-2 border-black p-5 shadow-lg">
-          <p className="font-PressStart2p text-xxs text-blue mb-2 ">{horaMaisOuvida()}
-          </p>
-          <p className="font-JetbrainsMono text-sm font-semibold">é a hora que mais ouves música</p>
-        </div>
-        <div className="border-2 border-black p-5 shadow-lg">
-          <p className="font-PressStart2p text-xxs text-blue mb-2 ">{estacaoMaisOuvida()}
-          </p>
-          <p className="font-JetbrainsMono text-sm font-semibold">é a estação que mais ouves música</p>
+          <p className="font-JetbrainsMono text-sm font-semibold">total de plays</p>
         </div>
         <div className="border-2 border-black p-5 shadow-lg">
           <p className="font-PressStart2p text-xxs text-blue mb-2 ">{mediaTempoDiario()} minutos
           </p>
-          <p className="font-JetbrainsMono text-sm font-semibold">é a tua média diária a ouvir música</p>
+          <p className="font-JetbrainsMono text-sm font-semibold">média diária a ouvir música</p>
+        </div>
+        <div className="border-2 border-black p-5 shadow-lg">
+          <p className="font-PressStart2p text-xxs text-blue mb-2 ">{horaMaisOuvida()}
+          </p>
+          <p className="font-JetbrainsMono text-sm font-semibold">hora que mais ouves música</p>
+        </div>
+        <div className="border-2 border-black p-5 shadow-lg">
+          <p className="font-PressStart2p text-xxs text-blue mb-2 ">{estacaoMaisOuvida()}
+          </p>
+          <p className="font-JetbrainsMono text-sm font-semibold">estação do ano que mais ouves música</p>
         </div>
         <div className="border-2 border-black p-5 shadow-lg">
           <p className="font-PressStart2p text-xxs text-blue mb-2 ">{musicasDiferentes()}
           </p>
-          <p className="font-JetbrainsMono text-sm font-semibold">é o número de músicas diferentes que já ouviste</p>
+          <p className="font-JetbrainsMono text-sm font-semibold">número de músicas diferentes que já ouviste</p>
+        </div>
+        <div className="border-2 border-black p-5 shadow-lg">
+          <p className="font-PressStart2p text-xxs text-blue mb-2 ">{minutosTotaisOuvidos()}
+          </p>
+          <p className="font-JetbrainsMono text-sm font-semibold">minutos que passaste a ouvir música</p>
         </div>
       </div>
 
