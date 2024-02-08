@@ -215,32 +215,3 @@ export function artistNamesArr() {
     });
     return Array.from(uniqueArtistNames).sort((a, b) => a > b ? 1 : -1);
 }
-
-
-export function MusicAlbumArt(album){
-  
-
-      const fetchAlbumArt = async () => {
-        try {
-          const response = await fetch(`https://musicbrainz.org/ws/2/release/?query=release:${encodeURIComponent(album)}&fmt=json`);
-          const data = await response.json();
-          if (data.releases && data.releases.length > 0) {
-            const releaseId = data.releases[0].id;
-            const coverResponse = await fetch(`https://coverartarchive.org/release/${releaseId}`);
-            const coverData = await coverResponse.json();
-            if (coverData.images && coverData.images.length > 0) {
-                console.log(coverData.images[0].image)
-                return coverData.images[0].image;
-            }
-          }
-        } catch (error) {
-          console.error('Error fetching album art:', error);
-        }
-      };
-  
-      fetchAlbumArt();
-  
-
-}
-
-
