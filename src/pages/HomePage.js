@@ -39,7 +39,7 @@ export function HomePage({ onChangePage }) {
         <span className="font-JetbrainsMono font-extrabold text-blue text-xs">{formataData(new Date())}</span>
       </div>
 
-      <div className="grid grid-cols-2 grid-rows-3 gap-3 mx-6">
+      <div className="grid grid-cols-2 grid-rows-3 gap-3 mx-6 h-3/4">
 
         <div className="border-2 border-black p-5 shadow-lg">
           <p className="font-PressStart2p text-xxs text-blue mb-2 ">{numeroDePlays()}
