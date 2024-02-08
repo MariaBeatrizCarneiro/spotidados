@@ -13,6 +13,9 @@ export function HomePage({onChangePage}) {
 
         <h1 className="font-PressStart2p text-xl w-44">Wilson Felizardo</h1>
         <p className="font-JetbrainsMono text-xs text-green">Estoy usando o spotiDados. Dale!</p>
+        <button className="border-black border-2 px-5 py-4 font-PressStart2p font-xs">Editar Perfil</button>
+        <button className="border-black border-2 px-5 py-4 font-PressStart2p font-xs">Share Profile</button>
+    
         <p className="mb-2 text-lg">Número de plays no total: { numeroDePlays() }.</p>
         <p className="mb-2 text-lg">Número de músicas diferentes já ouvidas: { musicasDiferentes() }.</p>
         <p className="mb-2 text-lg">Número de minutos ouvidos: { minutosTotaisOuvidos() } min. </p>
