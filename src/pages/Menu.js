@@ -14,7 +14,7 @@ export function Menu({ onChangePage }) {
           </button>
         </li>
         <li className="mx-4">
-          <button className="text-white hover:underline" onClick={() => onChangePage("top-musica")}>
+          <button className="text-white hover:underline" onClick={() => onChangePage("top-100")}>
             <TopIcon width="24" height="24" />
           </button>
         </li>
