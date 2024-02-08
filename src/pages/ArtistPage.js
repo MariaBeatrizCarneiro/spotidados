@@ -22,7 +22,7 @@ export function ArtistPage({ onChangePage }) {
 
       {artistNamesArr().indexOf(artista) === -1 ? (
         <div className="flex flex-grow justify-center items-center">
-          <div className="border-2 border-black w-80 h-80 flex flex-col justify-center items-center p-4">
+          <div className="text-center border-2 border-black w-80 h-80 flex flex-col justify-center items-center p-4 ">
             <p className="mb-2 text-l font-PressStart2p">Procura um artista</p>
             <input list="artistas" type="text" value={artista} onChange={handleInputChange} className="mb-4 p-2 border border-gray-300 rounded-md w-full" />
           </div>
@@ -35,10 +35,10 @@ export function ArtistPage({ onChangePage }) {
       ): null}
 
       {artistNamesArr().indexOf(artista) !== -1 ? (
-        <div className="flex-grow bg-lightgrey" style={{ paddingTop: "80px"}}>
+        <div className="flex-grow bg-lightgrey" style={{ paddingTop: "100px"}}>
           <ArtistPhoto artistName={artista} />
 
-          <div className="grid grid-cols-3 items-center px-6">
+          <div className="grid grid-cols-3 items-center">
             <p className="col-span-2 font-PressStart2p text-black">{artista}</p>
             <button onClick={handleTop20Click} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue`}>Top #20</button>
           </div>
@@ -50,7 +50,7 @@ export function ArtistPage({ onChangePage }) {
             </div>
 
             <div className="border-2 border-black p-5 shadow-lg">
-              <p className="font-PressStart2p text-xxs text-blue mb-2 ">#{posicaoTopCemArtista(artista) !== 0 ? posicaoTopCemArtista(artista) : `0`}</p>
+              <p className="font-PressStart2p text-xxs text-blue mb-2 ">#{posicaoTopCemArtista(artista) !== 0 ? posicaoTopCemArtista(artista) : `${artista} não está no teu top 100!`}</p>
               <p className="font-JetbrainsMono text-sm font-semibold">posição deste artista no teu top #100</p>
             </div>
 
