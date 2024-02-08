@@ -3,19 +3,20 @@ import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiari
 import {Menu} from "./Menu";
 import ArtistPhoto from "../components/artist_photo.js";
 import MusicAlbumArt from "../components/album.js";
+import LogoWithText from "../components/toplogo.js";
 
 export function HomePage({onChangePage}) {
     return (
+      
       <div className="page" >
+        <LogoWithText />
         <p className="mb-2 text-lg">Número de plays no total: { numeroDePlays() }.</p>
         <p className="mb-2 text-lg">Número de músicas diferentes já ouvidas: { musicasDiferentes() }.</p>
         <p className="mb-2 text-lg">Número de minutos ouvidos: { minutosTotaisOuvidos() } min. </p>
         <p className="mb-2 text-lg">Média de tempo diário: { mediaTempoDiario() } min por dia.</p>
         <p className="mb-2 text-lg">Hora mais ouvida: { horaMaisOuvida() }.</p>
         <p className="mb-2 text-lg">Estação do ano que mais ouve música: { estacaoMaisOuvida() }.</p>
-        
-              <MusicAlbumArt albumName="Jesus is King"/>
-              <ArtistPhoto artistName="TOOL" />
+        <ArtistPhoto artistName="Kanye West" />
 
         <Menu onChangePage={onChangePage} />
         <div className="mb-16"></div>
