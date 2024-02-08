@@ -1,6 +1,7 @@
 import React from "react";
 import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida } from "../common/index.js";
 import { Menu } from "./Menu";
+import { ReactComponent as HomeIcon } from "../assets/home_logos/profile_pic.svg";
 import ArtistPhoto from "../components/artist_photo.js";
 import MusicAlbumArt from "../components/album.js";
 import LogoWithText from "../components/toplogo.js";
@@ -8,18 +9,23 @@ import LogoWithText from "../components/toplogo.js";
 export function HomePage({ onChangePage }) {
   return (
 
-    <div className="page bg-lightgrey flex flex-col items-center" >
+    <div className="page bg-lightgrey flex flex-col" >
 
       <div className="w-full">
         <LogoWithText />
       </div>
 
-      <div className="mt-20 mx-7">
-        <h1 className="font-PressStart2p text-xl w-44">Wilson Felizardo</h1>
-        <p className="font-JetbrainsMono text-xs text-green">Estoy usando o spotiDados. Dale!</p>
-        <div className="flex flex">
-          <button className="border-black border-2 px-5 py-4 font-PressStart2p text-xxs">Editar Perfil</button>
-          <button className="border-black border-2 px-5 py-4 font-PressStart2p text-xxs">Share Profile</button>
+      <div className="mt-20 mx-6">
+        <div className="grid grid-cols-6">
+          <div className="col-span-4">
+            <h1 className="font-PressStart2p text-xl w-44">Wilson Felizardo</h1>
+            <p className="font-JetbrainsMono text-xs text-green">Estoy usando el spotiDados. Dale!</p>
+          </div>
+          <HomeIcon width="110" height="110" />
+        </div>
+        <div className="flex items-center justify-between">
+          <button className="border-black border-2 px-3 py-2 font-PressStart2p text-xxs">Editar Perfil</button>
+          <button className="border-black border-2 px-3 py-2 font-PressStart2p text-xxs">Share Profile</button>
         </div>
       </div>
 
