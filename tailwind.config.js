@@ -8,6 +8,7 @@ module.exports = {
       'blue': '#3f3cbb',
       'lighterblue': '#121063',
       'green': '#565584',
+      'black': '#000000'
     },
     fontFamily: {
       "PressStart2p": ["'Press Start 2P'", "sans-serif"],
