@@ -15,10 +15,11 @@ export function ArtistPage({ onChangePage }) {
 
   return (
     <div className="flex flex-col h-screen bg-lightgrey">
-      <LogoWithText />
+      <div>
+        <LogoWithText />
+      </div>
 
-
-/////////////////SEARCH PAGE////////////////////////
+      {/* /////////////////SEARCH PAGE//////////////////////// */}
 
       {artistNamesArr().indexOf(artista) === -1 ? (
         <div className="flex flex-grow justify-center items-center shadow-sm">
@@ -34,17 +35,21 @@ export function ArtistPage({ onChangePage }) {
         </div>
       ) : null}
 
-//////////ARTIST PAGE////////////////////////
+      {/* ///////////////////////ARTIST PAGE//////////////////////// */}
       {artistNamesArr().indexOf(artista) !== -1 ? (
-        <div className="flex-grow bg-lightgrey" style={{ paddingTop: "100px"}}>
-          <div className="w-80 h-60 border-black border-2 maxw">
-            <img src='https://variety.com/wp-content/uploads/2017/11/kendrick-lamar-variety-hitmakers.jpg?w=1000' />
-          </div>
+        <div className="flex-grow bg-lightgrey " style={{ paddingTop: "60px" }}>
+          <div>
+            <div className="w-85 h-60 mx-6 border-black border-2">
 
-          <div className="grid grid-cols-3 items-center px-6">
-            <p className="col-span-2 font-PressStart2p text-black">{artista}</p>
-            <button onClick={handleTop20Click}
-              className={`font-PressStart2p text-xxs px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue hover:scale-125`}>Top #20</button>
+            </div>
+
+            <div className="grid grid-cols-2 items-center px-6 mt-6">
+              <p className="col-span-1 font-PressStart2p text-black">{artista}</p>
+              <div className="flex justify-center">
+                <button onClick={handleTop20Click}
+                  className={`font-PressStart2p text-xxs px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue hover:scale-125`}>Top #20</button>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 grid-rows-3 gap-3 p-6" style={{ paddingBottom: "100px" }}>
