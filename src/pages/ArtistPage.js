@@ -17,15 +17,15 @@ export function ArtistPage({ onChangePage }) {
   };
 
   return (
-    <div className="page">
+    <div className="flex flex-col h-screen">
       <LogoWithText />
       {artistNamesArr().indexOf(artista) === -1 && (
-        <div className="flex justify-center items-center h-screen">
-          <div className="border border-black w-64 h-64 flex flex-col justify-center items-center p-4">
-            <p className="mb-2 text-lg font-PressStart2p">Procura um artista</p>
+        <div className="flex flex-grow justify-center items-center">
+          <div className="border-2 border-black w-80 h-80 flex flex-col justify-center items-center p-4">
+            <p className="mb-2 text-l font-PressStart2p">Procura um artista</p>
             <input list="artistas" type="text" value={artista} onChange={handleInputChange} className="mb-4 p-2 border border-gray-300 rounded-md w-full" />
           </div>
-          <datalist id="artistas" className=" border-black mt-4">
+          <datalist id="artistas" className="border-black border-4 ">
             {artistNamesArr().map((artista) => (
               <option key={artista} value={artista} className="font-PressStart2p text-black" />
             ))}
@@ -34,7 +34,7 @@ export function ArtistPage({ onChangePage }) {
       )}
 
       {artistNamesArr().indexOf(artista) !== -1 && (
-        <div>
+        <div className="flex-grow">
           <button onClick={handleTop20Click} className="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600">Top 20 músicas do {artista}</button>
           <ArtistPhoto artistName={artista} />
           <p className="mb-2 text-lg">Número de plays do artista: {numPlaysArtista(artista)}</p>
@@ -47,7 +47,6 @@ export function ArtistPage({ onChangePage }) {
       )}
 
       <Menu onChangePage={onChangePage} />
-      <div className="mb-16"></div>
     </div>
   );
 }
