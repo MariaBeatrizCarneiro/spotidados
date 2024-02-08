@@ -18,6 +18,9 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
         setTopVinte(topVinteMusicasPorArtista(periodo, selectedArtist))
     }, [selectedArtist]);
 
+    const fetchMusicAlbumArt = (album) => MusicAlbumArt(album)
+
+
     return (
         <div className="page">
             <LogoWithText />
@@ -26,9 +29,9 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
                 <p>{periodo}</p>
             </div>
 
-            <p style={{ paddingTop: "5rem" }}>{ }</p>
-            <ol>
-                {topVinte.map((ele) => <li>Musica: {ele[0]} <br />Album: {ele[1]} </li>)}
+            <p className="pt-16">{ }</p>
+            <ol className="list-decimal  list-inside">
+                {topVinte.map((ele, index) => <li className="border-2 marker:text-blue marker:font-PressStart2p">Musica: {ele[0]}<br /><span className="pl-12">Album: {ele[1]} </span></li>)}
             </ol>
 
 
@@ -43,6 +46,6 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
 
             <Menu onChangePage={onChangePage} />
             <div className="mb-16"></div>
-        </div>
+        </div >
     )
 }
