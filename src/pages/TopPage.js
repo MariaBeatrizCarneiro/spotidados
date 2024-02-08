@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { topCemArtistas, topCemMusicas } from "../common/index.js";
-import { Menu } from "./Menu";
+import { Menu } from "../components/Menu.js";
 import LogoWithText from "../components/toplogo.js";
 
 export function TopPage({ onChangePage, currentPage, selectedType }) {

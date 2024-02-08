@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { numPlaysArtista, musicasDiferentesArtista, minutosOuvidosArtista, playsDoArtista, posicaoTopCemArtista, artistaEstacaoMaisOuvida, artistNamesArr } from "../common/index";
-import { Menu } from "./Menu";
+import { Menu } from "../components/Menu.js";
 import ArtistPhoto from "../components/artist_photo.js";
 import MusicAlbumArt from "../components/album.js";
 import LogoWithText from "../components/toplogo.js";
