@@ -3,6 +3,16 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}",],
   theme: {
     extend: {},
+    colors: {
+      'lightgrey': '#ffffff',
+      'blue': '#3f3cbb',
+      'lighterblue': '#121063',
+      'green': '#565584',
+    },
+    fontFamily: {
+      "PressStart2p": ["'Press Start 2P'", "sans-serif"],
+      "JetbrainsMono": ["JetBrains Mono", "sans-serif"]
+    }
   },
   plugins: [],
 }

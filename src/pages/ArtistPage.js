@@ -18,16 +18,20 @@ export function ArtistPage({ onChangePage }) {
 
   return (
     <div className="page">
-      <p className="mb-2 text-lg">Insira o nome do artista:</p>
-      <input list="artistas" type="text" value={artista} onChange={handleInputChange} className="mb-4 p-2 border border-gray-300 rounded-md" />
-      <datalist id="artistas">
-        {artistNamesArr().map((artista) => (
-          <option key={artista} value={artista} />
-        ))}
-      </datalist>
+      {artistNamesArr().indexOf(artista) == -1 ? (
+        <div className="text-center" style={{ paddingTop: "20rem" }}>
+          <p className="mb-2 text-lg">Insira o nome do artista:</p>
+          <input list="artistas" type="text" value={artista} onChange={handleInputChange} className="mb-4 p-2 border border-gray-300 rounded-md" />
+          <datalist id="artistas">
+            {artistNamesArr().map((artista) => (
+              <option key={artista} value={artista} />
+            ))}
+          </datalist>
+        </div>
+      ) : null}
+
       {artistNamesArr().indexOf(artista) !== -1 ? (
         <div>
-
           <button onClick={handleTop20Click} className={`px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600`}>Top 20 músicas do {artista}</button>
           <ArtistPhoto artistName={artista} />
           <p className="mb-2 text-lg">Número de plays do artista: {numPlaysArtista(artista)}</p>
