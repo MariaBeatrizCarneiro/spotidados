@@ -101,14 +101,16 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
 
 
     return (
-        <div className="page bg-lightgrey h-dvh w-dvw">
+        <div className="bg-lightgrey h-dvh w-dvw">
             <LogoWithText />
-            <div className="fixed w-full bg-white z-10 text-center">
+            <div style={{ paddingTop: "65px" }} ></div>
+
+            <div className="fixed w-full bg-white z-10 text-center bg-lightgrey">
                 <p className="text-lg">Top #20:</p>
-                <p>{periodo}</p>
+                <p className="pb-2 text-lighterblue">{periodo}</p>
             </div>
 
-            <ol className="pt-16 bg-lightgrey">
+            <ol className="bg-lightgrey" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
                 {topVinte.map((ele, index) => <li className="border-2 flex items-center flex-nowrap m-4 shadow-lg">
                     <p className="text-blue font-PressStart2p align-text-middle p-4 w-14">#{index + 1}</p>
                     <div className="mx-5 h-12 w-12 bg-contain" style={{ backgroundImage: `url(${ele[2] ? ele[2] : musicaLogo})` }} />
@@ -116,18 +118,17 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
                 </li>)}
             </ol>
 
-
-            <div style={{ paddingTop: "1rem" }}>
-                <div className="grid grid-cols-4 gap-2 fixed bottom-0 left-0 w-full mb-16">
-                    <button onClick={() => handleOnClick("4semanas", artista)} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue ${periodo === "4semanas" ? "bg-blue-600" : ""}`}>4 semanas</button>
-                    <button onClick={() => handleOnClick("6meses")} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue ${periodo === "6meses" ? "bg-blue-600" : ""}`}>6 meses</button>
-                    <button onClick={() => handleOnClick("últimoAno")} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue ${periodo === "últimoAno" ? "bg-blue-600" : ""}`}>Último ano</button>
-                    <button onClick={() => handleOnClick("sempre")} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue ${periodo === "sempre" ? "bg-blue-600" : ""}`}>Sempre</button>
+            <div className="bg-lightgrey" style={{ paddingTop: "1rem" }}>
+                <div className="grid grid-cols-4 gap-2 fixed bottom-0 left-0 w-full mb-16" style={{ paddingBottom: "15px" }}>
+                <button onClick={() => onChangePeriodo("4semanas")} className={`px-4 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${ periodo === "4semanas" ? "bg-lighterblue" : "bg-lightgrey" }`}>4 semanas</button>
+                <button onClick={() => onChangePeriodo("6meses")} className={`px-4 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${ periodo === "6meses" ? "bg-lighterblue" : "bg-lightgrey" }`}>6 meses</button>
+                <button onClick={() => onChangePeriodo("últimoAno")} className={`px-4 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${ periodo === "últimoAno" ? "bg-lighterblue" : "bg-lightgrey" }`}>Último ano</button>
+                <button onClick={() => {onChangePeriodo("sempre"); }} className={`px-4 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${ periodo === "sempre" ? "bg-lighterblue" : "bg-lightgrey" }`}>Sempre</button>
                 </div>
             </div>
 
             <Menu onChangePage={onChangePage} />
-            <div className="mb-16"></div>
+            <div style={{ paddingBottom: "80px" }}></div>
         </div >
     )
 }

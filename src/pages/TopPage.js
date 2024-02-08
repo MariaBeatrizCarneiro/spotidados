@@ -9,7 +9,7 @@ export function TopPage({ onChangePage }) {
   const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
 
   return (
-    <div className="page bg-lightgrey">
+    <div className="bg-lightgrey">
       <LogoWithText />
       <div style={{ paddingTop: "65px" }} ></div>
 
