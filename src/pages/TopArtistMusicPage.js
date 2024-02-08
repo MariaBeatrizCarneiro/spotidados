@@ -65,10 +65,10 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
 
             <ol className="pt-16">
                 {topVinte.map((ele, index) => <li className="border-2 flex items-center flex-nowrap m-2">
-                    <span className="text-blue font-PressStart2p align-text-middle align-text-bottom p-4">{index + 1}#</span>
+                    <p className="text-blue font-PressStart2p align-text-middle align-text-bottom p-4 w-14">{index + 1}#</p>
                     <div className="mx-5 h-12 w-12 bg-contain" style={{ backgroundImage: `url(${ele[2] ? ele[2] : musicaLogo})` }} />
-                    <div>{ele[0]}</div>
-                    <span>Album: {ele[1]}</span></li>)}
+                    <p>{ele[0]}<br /> <span className="text-xxs">{ele[1]}</span></p>
+                </li>)}
             </ol>
 
 
