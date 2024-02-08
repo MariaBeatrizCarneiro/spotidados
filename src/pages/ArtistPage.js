@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { numPlaysArtista, musicasDiferentesArtista, minutosOuvidosArtista, playsDoArtista, posicaoTopCemArtista, artistaEstacaoMaisOuvida, artistNamesArr } from "../common/index";
 import { Menu } from "../components/Menu.js";
-import ArtistPhoto from "../components/artist_photo.js";
-import MusicAlbumArt from "../components/album.js";
 import LogoWithText from "../components/toplogo.js";
 
 export function ArtistPage({ onChangePage }) {
@@ -35,7 +33,6 @@ export function ArtistPage({ onChangePage }) {
 
       {artistNamesArr().indexOf(artista) !== -1 ? (
         <div className="flex-grow bg-lightgrey" style={{ paddingTop: "100px"}}>
-          <ArtistPhoto artistName={artista} />
 
           <div className="grid grid-cols-3 items-center px-6">
             <p className="col-span-2 font-PressStart2p text-black">{artista}</p>
