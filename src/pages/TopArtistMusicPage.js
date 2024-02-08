@@ -40,7 +40,6 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
         async function fetchAndSaveAlbumArts() {
             const result = musicas.map(async e => [...e, await fetchAlbumArt(e[1])])
             Promise.all(result).then((res) => {
-                console.log(res)
                 setTopVinte(res)
             })
         }
@@ -63,11 +62,11 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
                 <p>{periodo}</p>
             </div>
 
-            <ol className="pt-16">
-                {topVinte.map((ele, index) => <li className="border-2 flex items-center flex-nowrap m-2">
-                    <p className="text-blue font-PressStart2p align-text-middle align-text-bottom p-4 w-14">{index + 1}#</p>
+            <ol className="pt-16 bg-lightgrey">
+                {topVinte.map((ele, index) => <li className="border-2 flex items-center flex-nowrap m-4 shadow-lg">
+                    <p className="text-blue font-PressStart2p align-text-middle p-4 w-14">#{index + 1}</p>
                     <div className="mx-5 h-12 w-12 bg-contain" style={{ backgroundImage: `url(${ele[2] ? ele[2] : musicaLogo})` }} />
-                    <p>{ele[0]}<br /> <span className="text-xxs">{ele[1]}</span></p>
+                    <p className="font-JetbrainsMono font-extrabold align-text-middle text-blue whitespace-nowrap overflow-hidden">{ele[0]}<br /> <span className="text-xxs font-medium align-text-middle text-black">{ele[1]}</span></p>
                 </li>)}
             </ol>
 
