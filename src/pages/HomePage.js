@@ -1,10 +1,11 @@
 import React from "react";
 import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida } from "../common/index.js";
-import { Menu } from "./Menu";
+import { Menu } from "../components/Menu.js";
 import { ReactComponent as HomeIcon } from "../assets/home_logos/profile_pic.svg";
 import ArtistPhoto from "../components/artist_photo.js";
 import MusicAlbumArt from "../components/album.js";
 import LogoWithText from "../components/toplogo.js";
+import logo from '../assets/logo.svg'
 
 export function HomePage({ onChangePage }) {
   return (
@@ -12,7 +13,10 @@ export function HomePage({ onChangePage }) {
     <div className="page bg-lightgrey flex flex-col" >
 
       <div className="w-full">
-        <LogoWithText />
+        <div className="flex items-center ml-3 mt-3 mb-2 fixed">
+          <img src= {logo} alt="Logo" className="w-12 h-12 mr-2" />
+          <span className="text-xs font-PressStart2p font-semibold ">Spotidados</span>
+        </div>
       </div>
 
       <div className="mt-20 mx-6">
