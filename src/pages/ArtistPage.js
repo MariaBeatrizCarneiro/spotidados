@@ -17,8 +17,9 @@ export function ArtistPage({ onChangePage }) {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-lightgrey">
+    <div className="flex flex-col h-screen bg-lightgrey p-5">
       <LogoWithText />
+
       {artistNamesArr().indexOf(artista) === -1 ? (
         <div className="flex flex-grow justify-center items-center">
           <div className="border-2 border-black w-80 h-80 flex flex-col justify-center items-center p-4">
@@ -35,8 +36,13 @@ export function ArtistPage({ onChangePage }) {
 
       {artistNamesArr().indexOf(artista) !== -1 ? (
         <div className="flex-grow" style={{ paddingTop: "100px"}}>
-          <button onClick={handleTop20Click} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue`}>Top 20 músicas do {artista}</button>
           <ArtistPhoto artistName={artista} />
+
+          <div className="grid grid-cols-3 items-center">
+            <p className="col-span-2 font-PressStart2p text-black">{artista}</p>
+            <button onClick={handleTop20Click} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue`}>Top #20</button>
+          </div>
+
           <p className="mt-5 mb-2 text-lg">Número de plays do artista: {numPlaysArtista(artista)}</p>
           <p className="mb-2 text-lg">Número de músicas diferentes do artista: {musicasDiferentesArtista(artista)}</p>
           <p className="mb-2 text-lg">Minutos ouvidos do artista: {minutosOuvidosArtista(artista)}</p>
