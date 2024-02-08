@@ -22,7 +22,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
                 <p>{periodo}</p>
             </div>
 
-            <p>{topVinteMusicasPorArtista(periodo, artista)}</p>
+            <p style={{ paddingTop: "5rem" }}>{topVinteMusicasPorArtista(periodo, artista)}</p>
             <ArtistPhoto artistName={selectedArtist} />
 
             <div style={{ paddingTop: "1rem" }}>
