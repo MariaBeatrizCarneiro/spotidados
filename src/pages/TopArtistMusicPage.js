@@ -96,14 +96,14 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
 
 
     return (
-        <div className="page">
+        <div className="page bg-lightgrey h-dvh w-dvw">
             <LogoWithText />
             <div className="fixed w-full bg-white z-10 text-center">
                 <p className="text-lg">Top #20:</p>
                 <p>{periodo}</p>
             </div>
 
-            <ol className="pt-16 bg-lightgrey">
+            <ol className="pt-16 ">
                 {topVinte.map((ele, index) => <li className="border-2 flex items-center flex-nowrap m-4 shadow-lg">
                     <p className="text-blue font-PressStart2p align-text-middle p-4 w-14">#{index + 1}</p>
                     <div className="mx-5 h-12 w-12 bg-contain" style={{ backgroundImage: `url(${ele[2] ? ele[2] : musicaLogo})` }} />
