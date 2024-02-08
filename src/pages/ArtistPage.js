@@ -21,12 +21,12 @@ export function ArtistPage({ onChangePage }) {
       <LogoWithText />
 
       {artistNamesArr().indexOf(artista) === -1 ? (
-        <div className="flex flex-grow justify-center items-center">
-          <div className="text-center border-2 border-black w-80 h-80 flex flex-col justify-center items-center p-4 ">
-            <p className="mb-2 text-l font-PressStart2p">Procura um artista</p>
-            <input list="artistas" type="text" value={artista} onChange={handleInputChange} className="mb-4 p-2 border border-gray-300 rounded-md w-full" />
+        <div className="flex flex-grow justify-center items-center shadow-sm">
+          <div className="text-center border-2 border-black w-80 h-60 flex flex-col justify-center items-center p-4">
+            <p className="mb-2 text-sm font-PressStart2p">Procura um artista</p>
+            <input list="artistas" type="text" value={artista} className="font-JetbrainsMono font-extrabold text-lg text-black border-black border-2 bg-greybar mb-4 p-2 rounded-none w-full" onChange={handleInputChange} />
           </div>
-          <datalist id="artistas" className="border-black border-4 ">
+          <datalist id="artistas" className="border-black border-4">
             {artistNamesArr().map((artista) => (
               <option key={artista} value={artista} className="font-PressStart2p text-black" />
             ))}
