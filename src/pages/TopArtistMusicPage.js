@@ -9,13 +9,14 @@ import LogoWithText from "../components/toplogo.js";
 export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
     const [periodo, setPeriodo] = useState("sempre");
     const [artista, setArtista] = useState(selectedArtist);
+    const [topVinte, setTopVinte] = useState([])
 
     const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
 
     useEffect(() => {
         setArtista(selectedArtist);
+        setTopVinte(topVinteMusicasPorArtista(periodo, selectedArtist))
     }, [selectedArtist]);
-
 
     return (
         <div className="page">
@@ -25,8 +26,11 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
                 <p>{periodo}</p>
             </div>
 
-            <p style={{ paddingTop: "5rem" }}>{topVinteMusicasPorArtista(periodo, artista)}</p>
-            <ArtistPhoto artistName={selectedArtist} />
+            <p style={{ paddingTop: "5rem" }}>{ }</p>
+            <ol>
+                {topVinte.map((ele) => <li>Musica: {ele[0]} <br />Album: {ele[1]} </li>)}
+            </ol>
+
 
             <div style={{ paddingTop: "1rem" }}>
                 <div className="grid grid-cols-4 gap-2 fixed bottom-0 left-0 w-full mb-16">
