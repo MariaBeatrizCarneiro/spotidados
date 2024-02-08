@@ -4,10 +4,11 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
-      'lightgrey': '#ffffff',
+      'lightgrey': '#ECE7E7',
       'blue': '#3f3cbb',
-      'lighterblue': '#6277e4',
-      'green': '#565584',
+      'lighterblue': '#6277E4',
+      'green': '#6BCB4A',
+      'black': '#000000'
     },
     fontFamily: {
       "PressStart2p": ["'Press Start 2P'", "sans-serif"],
