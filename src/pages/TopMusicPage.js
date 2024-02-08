@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { topCemMusicas } from "../common/index.js";
 import { Menu } from "./Menu";
+import LogoWithText from "../components/toplogo.js";
+
 
 export function TopMusicPage({ onChangePage, currentPage }) {
   const [periodo, setPeriodo] = useState("sempre");
@@ -8,6 +10,7 @@ export function TopMusicPage({ onChangePage, currentPage }) {
 
   return (
     <div className="page">
+      <LogoWithText />
       <div className="fixed w-full bg-white z-10 text-center">
         <p className="text-lg ">Top #100:</p>
         <p>{periodo}</p>

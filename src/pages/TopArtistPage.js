@@ -3,6 +3,8 @@ import { topCemArtistas } from "../common/index.js";
 import { Menu } from "./Menu";
 import ArtistPhoto from "../components/artist_photo.js";
 import MusicAlbumArt from "../components/album.js";
+import LogoWithText from "../components/toplogo.js";
+
 
 export function TopArtistPage({ onChangePage, currentPage }) {
     const [periodo, setPeriodo] = useState("sempre");
@@ -10,6 +12,7 @@ export function TopArtistPage({ onChangePage, currentPage }) {
   
     return (
       <div className="page">
+        <LogoWithText />
         <div className="fixed w-full bg-white z-10 text-center">
             <p className="text-lg ">Top #100:</p>
             <p>{periodo}</p>

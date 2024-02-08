@@ -3,6 +3,8 @@ import { topVinteMusicasPorArtista } from "../common/index.js";
 import { Menu } from "./Menu";
 import ArtistPhoto from "../components/artist_photo.js";
 import MusicAlbumArt from "../components/album.js";
+import LogoWithText from "../components/toplogo.js";
+
 
 export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
     const [periodo, setPeriodo] = useState("sempre");
@@ -17,6 +19,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
 
     return (
         <div className="page">
+            <LogoWithText />
             <div className="fixed w-full bg-white z-10 text-center">
                 <p className="text-lg">Top #20:</p>
                 <p>{periodo}</p>
