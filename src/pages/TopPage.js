@@ -15,12 +15,12 @@ export function TopPage({ onChangePage, currentPage, selectedType }) {
       <div style={{ paddingTop: "65px" }} ></div>
       <div className="fixed w-full z-10 text-center bg-lightgrey">
         <p className="text-lg">Top #100:</p>
-        <p>{periodo}</p>
-        <button onClick={() => { setExibirArtistas(false); setIsButtonClicked(true); }} className={`px-4 py-2 border border-lighterblue bg-lightgrey hover:border-b-0 ${!exibirArtistas ? "border-b-0 border-x-0" : ""}`} style={{ width: "50%" }}>Músicas</button>
-        <button onClick={() => { setExibirArtistas(true); setIsButtonClicked(true); }} className={`px-4 py-2 border border-lighterblue bg-lightgrey hover:border-b-0 ${exibirArtistas ? "border-b-0 border-x-0" : ""}`} style={{ width: "50%" }}>Artistas</button>
+        <p className="pb-2 text-lighterblue">{periodo}</p>
+        <button onClick={() => { setExibirArtistas(false); setIsButtonClicked(true); }} className={`px-4 py-2 border border-black bg-lightgrey hover:border-b-0 ${!exibirArtistas ? "border-b-0 border-x-0" : ""}`} style={{ width: "50%" }}>Músicas</button>
+        <button onClick={() => { setExibirArtistas(true); setIsButtonClicked(true); }} className={`px-4 py-2 border border-black bg-lightgrey hover:border-b-0 ${exibirArtistas ? "border-b-0 border-x-0" : ""}`} style={{ width: "50%" }}>Artistas</button>
       </div>
 
-      <p style={{ paddingTop: "105px", paddingBottom: "60px" }}>
+      <p style={{ paddingTop: "115px", paddingBottom: "60px" }}>
         {exibirArtistas ? topCemArtistas(periodo) : topCemMusicas(periodo)}
       </p>
 
