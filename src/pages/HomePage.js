@@ -8,8 +8,11 @@ import LogoWithText from "../components/toplogo.js";
 export function HomePage({onChangePage}) {
     return (
       
-      <div className="page" >
+      <div className="page bg-lightgrey" >
         <LogoWithText />
+
+        <h1 className="font-PressStart2p text-xl w-44">Wilson Felizardo</h1>
+        <p className="font-JetbrainsMono text-xs text-green">Estoy usando o spotiDados. Dale!</p>
         <p className="mb-2 text-lg">Número de plays no total: { numeroDePlays() }.</p>
         <p className="mb-2 text-lg">Número de músicas diferentes já ouvidas: { musicasDiferentes() }.</p>
         <p className="mb-2 text-lg">Número de minutos ouvidos: { minutosTotaisOuvidos() } min. </p>
