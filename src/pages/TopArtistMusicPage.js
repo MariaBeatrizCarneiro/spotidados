@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MusicAlbumArt, topVinteMusicasPorArtista } from "../common/index.js";
+import { topVinteMusicasPorArtista } from "../common/index.js";
 import { Menu } from "../components/Menu.js";
 import LogoWithText from "../components/toplogo.js";
 import musicaLogo from "../assets/musica.png"
@@ -9,8 +9,10 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
     const [periodo, setPeriodo] = useState("sempre");
     const [artista, setArtista] = useState(selectedArtist);
     const [topVinte, setTopVinte] = useState([])
+    const [abort, setAbort] = useState(false)
 
     function handleOnClick(periodo, artista) {
+        setAbort(true)
         onChangePeriodo(periodo)
         setTopVinte(topVinteMusicasPorArtista(periodo, artista))
         fetchAlbumArt()
@@ -20,6 +22,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
 
     function fetchAlbumArt() {
 
+        setAbort(false)
         setArtista(selectedArtist);
 
         const musicas = topVinteMusicasPorArtista(periodo, artista)
@@ -45,9 +48,11 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
 
         async function fetchAndSaveAlbumArts() {
             const result = musicas.map(async e => [...e, await fetchAlbumArt(e[1])])
-            Promise.all(result).then((res) => {
-                setTopVinte(res)
-            })
+
+                Promise.all(result).then((res) => {
+                    setTopVinte(res)
+                })
+            
         }
 
         fetchAndSaveAlbumArts()
@@ -103,7 +108,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
                 <p>{periodo}</p>
             </div>
 
-            <ol className="pt-16 ">
+            <ol className="pt-16 bg-lightgrey">
                 {topVinte.map((ele, index) => <li className="border-2 flex items-center flex-nowrap m-4 shadow-lg">
                     <p className="text-blue font-PressStart2p align-text-middle p-4 w-14">#{index + 1}</p>
                     <div className="mx-5 h-12 w-12 bg-contain" style={{ backgroundImage: `url(${ele[2] ? ele[2] : musicaLogo})` }} />
