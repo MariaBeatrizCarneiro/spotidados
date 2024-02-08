@@ -20,8 +20,22 @@ export function TopPage({ onChangePage }) {
         <button onClick={() => { setExibirArtistas(true); }} className={`px-4 py-2 border border-black bg-lightgrey ${ exibirArtistas ? "border-b-0 border-x-0" : "" }`} style={{ width: "50%" }}>Artistas</button>
       </div>
 
-      <p style={{ paddingTop: "115px", paddingBottom: "60px" }}>
-        {exibirArtistas ? topCemArtistas(periodo) : topCemMusicas(periodo)}
+      <p className="px-6" style={{ paddingTop: "115px", paddingBottom: "60px" }}>
+        {exibirArtistas ? 
+          topCemArtistas(periodo).map((artista, index) => (
+              <div key={index} className="grid grid-cols-12 border-2 border-black p-1 py-4 shadow-lg mb-2 items-center">
+                  <p className="col-span-3 text-blue font-PressStart2p align-text-middle ps-2">#{index+1}</p>
+                  <p className="col-span-9 font-JetbrainsMono font-extrabold align-text-middle text-blue whitespace-nowrap overflow-hidden">{artista}</p>
+              </div>
+          )) :
+          topCemMusicas(periodo).map((musica, index) => (
+              <div key={index} className="grid grid-cols-12 border-2 border-black p-1 shadow-lg mb-2 items-center">
+                  <p className="col-span-3 text-blue font-PressStart2p align-text-middle ps-2">#{index+1}</p>
+                  <p className="col-span-9 font-JetbrainsMono font-extrabold align-text-middle text-blue whitespace-nowrap overflow-scroll">{musica[0]}<br /> <span className="text-xxs font-medium align-text-middle text-black">{musica[1][1]}</span></p>
+              </div>
+          ))
+        }
+        {/* .map(item => item[0] + " - " + item[1][1]) */}
       </p>
 
       <div style={{ paddingTop: "1rem" }}>

@@ -128,7 +128,7 @@ export function topCemMusicas(intervalo) {
 
     const sortedMusicas = [...musicas].sort((a, b) => b[1][0] - a[1][0]);
 
-    return sortedMusicas.slice(0, 100).map(item => item[0] + " - " + item[1][1]);
+    return sortedMusicas.slice(0, 100);
 }
 
 
