@@ -90,6 +90,10 @@ export function estacaoMaisOuvida() {
 
 export function topCemArtistas(intervalo) {
     const artistas = filtraPorIntervaloDeTempo(intervalo).reduce((acc, e) => {
+        
+        if (!e.master_metadata_track_name) {
+            return acc
+        }
 
         return acc.has(e.master_metadata_album_artist_name) ?
             acc.set(e.master_metadata_album_artist_name, acc.get(e.master_metadata_album_artist_name) + 1) :
@@ -121,8 +125,11 @@ export function filtraPorIntervaloDeTempo(intervalo) {
 
 export function topCemMusicas(intervalo) {
     const musicas = filtraPorIntervaloDeTempo(intervalo).reduce((acc, e) => {
+        if (!e.master_metadata_track_name) {
+            return acc
+        }
         return acc.has(e.master_metadata_track_name) ?
-            acc.set(e.master_metadata_track_name, [acc.get(e.master_metadata_track_name) + e.ms_played, e.master_metadata_album_artist_name]) :
+            acc.set(e.master_metadata_track_name, [acc.get(e.master_metadata_track_name)[0] + e.ms_played, e.master_metadata_album_artist_name]) :
             acc.set(e.master_metadata_track_name, [e.ms_played, e.master_metadata_album_artist_name])
     }, new Map());
 
@@ -161,7 +168,7 @@ export function playsDoArtista(artista) {
 export function topVinteMusicasPorArtista(intervalo, artista) {
     const musicas = filtraPorIntervaloDeTempoPorArtista(intervalo, artista).reduce((acc, e) => {
         return acc.has(e.master_metadata_track_name) ?
-            acc.set(e.master_metadata_track_name, [acc.get(e.master_metadata_track_name) + e.ms_played, e.master_metadata_album_album_name]) :
+            acc.set(e.master_metadata_track_name, [acc.get(e.master_metadata_track_name)[0] + e.ms_played, e.master_metadata_album_album_name]) :
             acc.set(e.master_metadata_track_name, [e.ms_played, e.master_metadata_album_album_name])
     }, new Map());
 
@@ -221,11 +228,11 @@ export function formataData(data) {
     let mes = data.getMonth() + 1
     let ano = data.getFullYear()
 
-    if (dia < 10){
-        dia = '0'+ dia
+    if (dia < 10) {
+        dia = '0' + dia
     }
     if (mes < 10) {
-        mes = '0'+ mes
+        mes = '0' + mes
     }
     return dia + '/' + mes + '/' + ano
 }
