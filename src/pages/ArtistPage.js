@@ -19,7 +19,7 @@ export function ArtistPage({ onChangePage }) {
   return (
     <div className="flex flex-col h-screen bg-lightgrey">
       <LogoWithText />
-      {artistNamesArr().indexOf(artista) === -1 && (
+      {artistNamesArr().indexOf(artista) === -1 ? (
         <div className="flex flex-grow justify-center items-center">
           <div className="border-2 border-black w-80 h-80 flex flex-col justify-center items-center p-4">
             <p className="mb-2 text-l font-PressStart2p">Procura um artista</p>
@@ -31,11 +31,11 @@ export function ArtistPage({ onChangePage }) {
             ))}
           </datalist>
         </div>
-      )}
+      ): null}
 
       {artistNamesArr().indexOf(artista) !== -1 ? (
         <div className="flex-grow" style={{ paddingTop: "100px"}}>
-          <button onClick={handleTop20Click} className={`px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600`}>Top 20 músicas do {artista}</button>
+          <button onClick={handleTop20Click} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue`}>Top 20 músicas do {artista}</button>
           <ArtistPhoto artistName={artista} />
           <p className="mt-5 mb-2 text-lg">Número de plays do artista: {numPlaysArtista(artista)}</p>
           <p className="mb-2 text-lg">Número de músicas diferentes do artista: {musicasDiferentesArtista(artista)}</p>
@@ -44,7 +44,7 @@ export function ArtistPage({ onChangePage }) {
           <p className="mb-2 text-lg">Posição do artista no top 100: {posicaoTopCemArtista(artista) !== 0 ? posicaoTopCemArtista(artista) : `${artista} não está no teu top 100!`}</p>
           <p className="mb-2 text-lg">Estação do ano em que o artista é mais ouvido: {artistaEstacaoMaisOuvida(artista)}</p>
         </div>
-      )}
+      ): null}
 
       <Menu onChangePage={onChangePage} />
     </div>
