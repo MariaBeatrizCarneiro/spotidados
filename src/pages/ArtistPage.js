@@ -20,6 +20,9 @@ export function ArtistPage({ onChangePage }) {
     <div className="flex flex-col h-screen bg-lightgrey">
       <LogoWithText />
 
+
+/////////////////SEARCH PAGE////////////////////////
+
       {artistNamesArr().indexOf(artista) === -1 ? (
         <div className="flex flex-grow justify-center items-center shadow-sm">
           <div className="text-center border-2 border-black w-80 h-60 flex flex-col justify-center items-center p-4">
@@ -32,18 +35,21 @@ export function ArtistPage({ onChangePage }) {
             ))}
           </datalist>
         </div>
-      ): null}
+      ) : null}
 
+//////////ARTIST PAGE////////////////////////
       {artistNamesArr().indexOf(artista) !== -1 ? (
-        <div className="flex-grow bg-lightgrey" style={{ paddingTop: "100px"}}>
-          <ArtistPhoto artistName={artista} />
-
+        <div className="flex-grow bg-lightgrey" style={{ paddingTop: "100px" }}>
+          <div className="w-80 h-60 border-black border-2 maxw">
+            <img src='https://variety.com/wp-content/uploads/2017/11/kendrick-lamar-variety-hitmakers.jpg?w=1000' />
+          </div>
           <div className="grid grid-cols-3 items-center px-6">
             <p className="col-span-2 font-PressStart2p text-black">{artista}</p>
-            <button onClick={handleTop20Click} className={`px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue`}>Top #20</button>
+            <button onClick={handleTop20Click}
+              className={`font-PressStart2p text-xxs px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue hover:scale-125`}>Top #20</button>
           </div>
 
-          <div className="grid grid-cols-2 grid-rows-3 gap-3 p-6" style={{ paddingBottom: "100px"}}>
+          <div className="grid grid-cols-2 grid-rows-3 gap-3 p-6" style={{ paddingBottom: "100px" }}>
             <div className="border-2 border-black p-5 shadow-lg">
               <p className="font-PressStart2p text-xxs text-blue mb-2 ">{numPlaysArtista(artista)}</p>
               <p className="font-JetbrainsMono text-sm font-semibold">vezes que ouviste este artista</p>
@@ -75,7 +81,7 @@ export function ArtistPage({ onChangePage }) {
             </div>
           </div>
         </div>
-      ): null}
+      ) : null}
 
       <Menu onChangePage={onChangePage} />
     </div>
