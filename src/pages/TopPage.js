@@ -47,7 +47,7 @@ export function TopPage({ onChangePage }) {
         <div className="grid grid-cols-4 gap-1 fixed bottom-0 left-0 w-full mb-16" style={{ paddingBottom: "15px" }}>
           <button onClick={() => onChangePeriodo("4semanas")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${periodo === "4semanas" ? "bg-lighterblue" : "bg-lightgrey"}`}>4 semanas</button>
           <button onClick={() => onChangePeriodo("6meses")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${periodo === "6meses" ? "bg-lighterblue" : "bg-lightgrey"}`}>6 meses</button>
-          <button onClick={() => onChangePeriodo("últimoAno")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${periodo === "últimoAno" ? "bg-lighterblue" : "bg-lightgrey"}`}>Último ano</button>
+          <button onClick={() => onChangePeriodo("ultimoAno")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${periodo === "ultimoAno" ? "bg-lighterblue" : "bg-lightgrey"}`}>Último ano</button>
           <button onClick={() => { onChangePeriodo("sempre"); }} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${periodo === "sempre" ? "bg-lighterblue" : "bg-lightgrey"}`}>Sempre</button>
         </div>
       </div>

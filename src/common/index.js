@@ -110,7 +110,7 @@ export function filtraPorIntervaloDeTempo(intervalo) {
     if (intervalo == "sempre") return history;
     if (intervalo == "4semanas") tempo = 4 * 7 * 24 * 3600 * 1000;
     if (intervalo == "6meses") tempo = 6 * 30.44 * 24 * 3600 * 1000;
-    if (intervalo == "últimoAno") tempo = 365.25 * 24 * 3600 * 1000;
+    if (intervalo == "ultimoAno") tempo = 365.25 * 24 * 3600 * 1000;
 
     const dataAtual = new Date();
 
@@ -183,7 +183,7 @@ export function filtraPorIntervaloDeTempoPorArtista(intervalo, artista) {
     if (intervalo == "sempre") return arrArtista;
     if (intervalo == "4semanas") tempo = 4 * 7 * 24 * 3600 * 1000;
     if (intervalo == "6meses") tempo = 6 * 30.44 * 24 * 3600 * 1000;
-    if (intervalo == "últimoAno") tempo = 365.25 * 24 * 3600 * 1000;
+    if (intervalo == "ultimoAno") tempo = 365.25 * 24 * 3600 * 1000;
 
     const dataAtual = new Date();
 
