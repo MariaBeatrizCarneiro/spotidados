@@ -4,6 +4,7 @@ import LogoWithText from "../components/toplogo.js";
 import { ArtistPage } from "./ArtistPage.js";
 import { artistNamesArr } from "../common/index";
 import Pacman2 from "../assets/pacman/PacmanAnimated.js";
+import Ghost from "../assets/pacman/ghost.js";
 
 export function SearchPage({ onChangePage }) {
   const [artista, setArtista] = useState("");
