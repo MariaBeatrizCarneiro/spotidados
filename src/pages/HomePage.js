@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida, formataData } from "../common/index.js";
 import { Menu } from "../components/Menu.js";
-import logo from '../assets/logo.svg'
+import logo from '../assets/disk.svg'
 import { ReactComponent as Calendar } from "../assets/icon _calendar.svg";
 import { ReactComponent as Wilson } from "../assets/wilsonprofilepic.svg";
+import LogoWithText from "../components/toplogo.js";
 
 export function HomePage({ onChangePage }) {
   const [userName, setUserName] = useState("Wilson Contente"); // Initial user name
@@ -18,11 +19,8 @@ export function HomePage({ onChangePage }) {
 
     <div className="page bg-lightgrey flex flex-col" >
 
-      <div className="w-full">
-        <div className="flex items-center pl-3 pt-3 pb-2 fixed">
-          <img src= {logo} alt="Logo" className="w-10 h-10 mr-2" />
-          <span className="text-xs font-PressStart2p font-semibold ">Spotidados</span>
-        </div>
+      <div className="w-full bg-lightgrey">
+        <LogoWithText />
       </div>
 
       <div className="mt-20 mx-6">
