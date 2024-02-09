@@ -79,11 +79,11 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
             </ol>
 
             <div className="bg-lightgrey" style={{ paddingTop: "1rem" }}>
-                <div className="bg-lightgrey grid grid-cols-4 gap-1 fixed bottom-0 left-0 right-0 w-full mb-16" style={{ paddingBottom: "15px" }}>
-                    <button onClick={() => handleAlbumArt("4semanas")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "4semanas" ? "bg-lighterblue" : "bg-lightgrey"}`}>4 semanas</button>
-                    <button onClick={() => handleAlbumArt("6meses")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "6meses" ? "bg-lighterblue" : "bg-lightgrey"}`}>6 meses</button>
-                    <button onClick={() => handleAlbumArt("ultimoAno")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "ultimoAno" ? "bg-lighterblue" : "bg-lightgrey"}`}>Último ano</button>
-                    <button onClick={() => handleAlbumArt("sempre")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "sempre" ? "bg-lighterblue" : "bg-lightgrey"}`}>Sempre</button>
+                <div className="grid grid-cols-4 gap-1 fixed bottom-0 left-0 right-0 w-full mb-16" style={{ paddingBottom: "15px" }}>
+                    <button onClick={() => handleAlbumArt("4semanas")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue ${topVinte.period === "4semanas" ? "bg-lighterblue" : "bg-lightgrey"}`}>4 semanas</button>
+                    <button onClick={() => handleAlbumArt("6meses")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue ${topVinte.period === "6meses" ? "bg-lighterblue" : "bg-lightgrey"}`}>6 meses</button>
+                    <button onClick={() => handleAlbumArt("ultimoAno")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue ${topVinte.period === "ultimoAno" ? "bg-lighterblue" : "bg-lightgrey"}`}>Último ano</button>
+                    <button onClick={() => handleAlbumArt("sempre")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue ${topVinte.period === "sempre" ? "bg-lighterblue" : "bg-lightgrey"}`}>Sempre</button>
                 </div>
             </div>
 
