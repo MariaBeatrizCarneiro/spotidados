@@ -7,12 +7,27 @@ export function TopPage({ onChangePage }) {
   const [periodo, setPeriodo] = useState("sempre");
   const [exibirArtistas, setExibirArtistas] = useState(false);
   const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
-
   const handleArtistClick = (nomeArtista) => {
     if (nomeArtista !== "") {
       onChangePage("artista", nomeArtista);
     }
   };
+
+  function displayPeriodo(periodo) {
+    switch (periodo) {
+      case "sempre":
+        return "desde sempre"
+      case "4semanas":
+        return "Últimas 4 semanas"
+      case "6meses":
+        return "Últimos 6 meses "
+      case "ultimoAno":
+        return "Último ano"
+      default:
+        return " "
+    }
+  }
+
 
   return (
     <div className="bg-lightgrey">
@@ -21,7 +36,7 @@ export function TopPage({ onChangePage }) {
 
       <div className="fixed w-full z-10 text-center bg-lightgrey">
         <p className="font-PressStart2p text-lg">Top #100</p>
-        <p className="pb-2 text-green font-PressStart2p text-xxs">{periodo}</p>
+        <p className="pb-2 text-green font-PressStart2p text-xxs">{displayPeriodo(periodo)}</p>
         <button onClick={() => { setExibirArtistas(false); }}
           className={`font-PressStart2p text-xs px-4 py-3 border-2 border-black bg-lightgrey ${!exibirArtistas ? "border-b-0 border-x-0" : ""}`} style={{ width: "50%" }}>
           Músicas
@@ -55,7 +70,7 @@ export function TopPage({ onChangePage }) {
         <div className="grid grid-cols-4 gap-1 fixed bottom-0 left-0 w-full mb-16" style={{ paddingBottom: "15px" }}>
           <button onClick={() => onChangePeriodo("4semanas")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${periodo === "4semanas" ? "bg-lighterblue" : "bg-lightgrey"}`}>4 semanas</button>
           <button onClick={() => onChangePeriodo("6meses")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${periodo === "6meses" ? "bg-lighterblue" : "bg-lightgrey"}`}>6 meses</button>
-          <button onClick={() => onChangePeriodo("últimoAno")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${periodo === "últimoAno" ? "bg-lighterblue" : "bg-lightgrey"}`}>Último ano</button>
+          <button onClick={() => onChangePeriodo("ultimoAno")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${periodo === "ultimoAno" ? "bg-lighterblue" : "bg-lightgrey"}`}>Último ano</button>
           <button onClick={() => { onChangePeriodo("sempre"); }} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${periodo === "sempre" ? "bg-lighterblue" : "bg-lightgrey"}`}>Sempre</button>
         </div>
       </div>
