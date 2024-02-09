@@ -3,6 +3,7 @@ import { topVinteMusicasPorArtista } from "../common/index.js";
 import { Menu } from "../components/Menu.js";
 import LogoWithText from "../components/toplogo.js";
 import musicaLogo from "../assets/musica.png"
+import { fetchArt } from "../common/fetchArt.js";
 
 
 export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
@@ -26,31 +27,11 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
         }
     }
 
-    const fetchAlbumArt = async (album) => {
-        try {
-            const response = await fetch(`https://musicbrainz.org/ws/2/release/?query=release:${encodeURIComponent(album)}&fmt=json`);
-
-            if (response.status !== 200) throw "NOT FOUD"
-            const data = await response.json();
-            if (data.releases && data.releases.length > 0) {
-                const releaseId = data.releases[0].id;
-                const coverResponse = await fetch(`https://coverartarchive.org/release/${releaseId}`);
-                const coverData = await coverResponse.json();
-                if (coverData.images && coverData.images.length > 0) {
-                    return coverData.images[0].image;
-                }
-            }
-        } catch (error) {
-            // console.error('Error fetching album art:', error);
-        }
-    };
-
     async function handleAlbumArt(periodo) {
         const data = topVinteMusicasPorArtista(periodo, selectedArtist)
-        const dataWithImages = data.map(async e => [...e, await fetchAlbumArt(e[1])])
+        const dataWithImages = data.map(async e => [...e, await fetchArt("album", e[1])])
         let cenas
         await Promise.all(dataWithImages).then((res) => cenas = { data: res, period: periodo })
-        console.log(cenas)
         setTopVinte(cenas)
     }
 
@@ -74,7 +55,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
                 {topVinte.data.map((ele, index) => <li className="border-2 flex items-center flex-nowrap m-4 shadow-lg">
                     <p className="text-blue font-PressStart2p align-text-middle p-4 w-14">#{index + 1}</p>
                     <div className="mx-5 h-12 w-12 bg-cover shrink-0" style={{ backgroundImage: `url(${ele[2] ? ele[2] : musicaLogo})` }} />
-                    <p className="font-JetbrainsMono font-extrabold align-text-middle text-blue whitespace-nowrap overflow-hidden">{ele[0]}<br /> <span className="text-xxs font-medium align-text-middle text-black">{ele[1]}</span></p>
+                    <p className="font-JetbrainsMono font-extrabold align-text-middle text-blue whitespace-nowrap overflow-scroll">{ele[0]}<br /> <span className="text-xxs font-medium align-text-middle text-black">{ele[1]}</span></p>
                 </li>)}
             </ol>
 
