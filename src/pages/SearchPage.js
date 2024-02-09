@@ -17,7 +17,7 @@ export function SearchPage({ onChangePage }) {
 
   return (
     <div>
-      {counter < 10 ?
+      {counter <8 ?
         artistNamesArr().indexOf(artista) === -1 ? (
           <div className="flex flex-col h-screen bg-lightgrey">
             <div>
