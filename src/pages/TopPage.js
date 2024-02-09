@@ -39,7 +39,7 @@ export function TopPage({ onChangePage }) {
           topCemArtistas(periodo).map((nomeArtista, index) => (
             <button key={index} onClick={() => handleArtistClick(nomeArtista)} className="w-full">
               <div className="flex flex-nowrap border-2 border-black p-1 shadow-lg mb-2 items-center">
-                <p className="col-span-3 text-blue font-PressStart2p text-left ps-2">#{index + 1}</p>
+                <p className="text-blue font-PressStart2p align-text-middle p-4 w-14">#{index + 1}</p>
                 <div className="mx-5 h-12 w-12 bg-cover shrink-0" style={{ backgroundImage: `url(${musicaLogo})` }} />
                 <p className="col-span-9 font-JetbrainsMono font-extrabold text-left text-blue whitespace-nowrap overflow-hidden">{nomeArtista}</p>
               </div>
@@ -47,7 +47,7 @@ export function TopPage({ onChangePage }) {
           )) :
           topCemMusicas(periodo).map((musica, index) => (
             <div key={index} className="flex-nowrap flex border-2 border-black p-1 shadow-lg mb-2 items-center">
-              <p className="col-span-3 text-blue font-PressStart2p align-text-middle ps-2">#{index + 1}</p>
+              <p className="text-blue font-PressStart2p align-text-middle p-4 w-14">#{index + 1}</p>
               <div className="mx-5 h-12 w-12 bg-cover shrink-0" style={{ backgroundImage: `url(${musicaLogo})` }} />
               <p className="col-span-9 font-JetbrainsMono font-extrabold align-text-middle text-blue whitespace-nowrap overflow-scroll">{musica[0]}<br /> <span className="text-xxs font-medium align-text-middle text-black">{musica[1][1]}</span></p>
             </div>
