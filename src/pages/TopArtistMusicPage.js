@@ -27,29 +27,6 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
         }
     }
 
-    // const fetchAlbumArt = async (album) => {
-    //     try {
-    //         const response = await fetch(``, {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json"
-    //             },
-    //             body: JSON.stringify({
-    //                 type: "album",
-    //                 name: album,
-    //                 auth: "BYTES4FUTURE #7"
-    //             })
-    //         });
-
-    //         if (response.status === 200) {
-    //             const body = await response.json()
-    //             return body.imagePath
-    //         }
-    //     } catch (error) {
-    //         console.error('Error fetching art:', error);
-    //     }
-    // };
-
     async function handleAlbumArt(periodo) {
         const data = topVinteMusicasPorArtista(periodo, selectedArtist)
         const dataWithImages = data.map(async e => [...e, await fetchArt("album", e[1])])
