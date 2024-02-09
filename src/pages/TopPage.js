@@ -8,6 +8,21 @@ export function TopPage({ onChangePage }) {
   const [exibirArtistas, setExibirArtistas] = useState(false);
   const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
 
+  function displayPeriodo(periodo) {
+    switch (periodo) {
+      case "sempre":
+        return "desde sempre"
+      case "4semanas":
+        return "Últimas 4 semanas"
+      case "6meses":
+        return "Últimos 6 meses "
+      case "ultimoAno":
+        return "Último ano"
+      default:
+        return " "
+    }
+  }
+
   return (
     <div className="bg-lightgrey">
       <LogoWithText />
@@ -15,7 +30,7 @@ export function TopPage({ onChangePage }) {
 
       <div className="fixed w-full z-10 text-center bg-lightgrey">
         <p className="font-PressStart2p text-lg">Top #100</p>
-        <p className="pb-2 text-green font-PressStart2p text-xxs">{periodo}</p>
+        <p className="pb-2 text-green font-PressStart2p text-xxs">{displayPeriodo(periodo)}</p>
         <button onClick={() => { setExibirArtistas(false); }}
           className={`font-PressStart2p text-xs px-4 py-3 border-2 border-black bg-lightgrey ${!exibirArtistas ? "border-b-0 border-x-0" : ""}`} style={{ width: "50%" }}>
           Músicas
