@@ -49,7 +49,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
             <div style={{ paddingTop: "50px" }} ></div>
 
             <div className="fixed w-full bg-white z-10 text-center bg-lightgrey">
-        
+
                 <p className="text-lg font-PressStart2p">Top #20</p>
                 <p className="text-xxs font-PressStart2p pb-2 text-green">{topVinte.period}</p>
             </div>
@@ -57,13 +57,13 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
             <ol className="bg-lightgrey" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
                 {topVinte.data.map((ele, index) => <li className="border-2 flex items-center flex-nowrap m-4 shadow-lg">
                     <p className="text-blue font-PressStart2p align-text-middle p-4 w-14">#{index + 1}</p>
-                    <div className="mx-5 h-12 w-12 bg-contain" style={{ backgroundImage: `url(${ele[2] ? ele[2] : musicaLogo})` }} />
+                    <div className="mx-5 h-12 w-12 bg-cover shrink-0" style={{ backgroundImage: `url(${ele[2] ? ele[2] : musicaLogo})` }} />
                     <p className="font-JetbrainsMono font-extrabold align-text-middle text-blue whitespace-nowrap overflow-hidden">{ele[0]}<br /> <span className="text-xxs font-medium align-text-middle text-black">{ele[1]}</span></p>
                 </li>)}
             </ol>
 
             <div className="bg-lightgrey" style={{ paddingTop: "1rem" }}>
-                <div className="grid grid-cols-4 gap-1 fixed bottom-0 left-0 right-0 w-full mb-16" style={{ paddingBottom: "15px" }}>
+                <div className="bg-lightgrey grid grid-cols-4 gap-1 fixed bottom-0 left-0 right-0 w-full mb-16" style={{ paddingBottom: "15px" }}>
                     <button onClick={() => handleAlbumArt("4semanas")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "4semanas" ? "bg-lighterblue" : "bg-lightgrey"}`}>4 semanas</button>
                     <button onClick={() => handleAlbumArt("6meses")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "6meses" ? "bg-lighterblue" : "bg-lightgrey"}`}>6 meses</button>
                     <button onClick={() => handleAlbumArt("últimoAno")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "últimoAno" ? "bg-lighterblue" : "bg-lightgrey"}`}>Último ano</button>
