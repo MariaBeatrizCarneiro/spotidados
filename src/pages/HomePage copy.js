@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { numeroDePlays, musicasDiferentes, minutosTotaisOuvidos, mediaTempoDiario, horaMaisOuvida, estacaoMaisOuvida, formataData } from "../common/index.js";
 import { Menu } from "../components/Menu.js";
 import logo from '../assets/logo.svg'
@@ -6,14 +6,6 @@ import { ReactComponent as Calendar } from "../assets/icon _calendar.svg";
 import { ReactComponent as Wilson } from "../assets/wilsonprofilepic.svg";
 
 export function HomePage({ onChangePage }) {
-  const [userName, setUserName] = useState("Wilson Contente"); // Initial user name
-  const handleEditProfile = () => {
-    // You can implement a modal or an input field to allow the user to input the new name
-    const newName = prompt("Enter your new name:");
-    if (newName) {
-      setUserName(newName);
-    }
-  };
   return (
 
     <div className="page bg-lightgrey flex flex-col" >
@@ -28,13 +20,13 @@ export function HomePage({ onChangePage }) {
       <div className="mt-20 mx-6">
         <div className="grid grid-cols-6 mb-6">
           <div className="col-span-4">
-            <h1 className="font-PressStart2p text-xl w-44">{userName}</h1>
+            <h1 className="font-PressStart2p text-xl w-44">Wilson Contente</h1>
             <p className="font-JetbrainsMono text-xs text-green">Estoy usando el spotiDados. Dale!</p>
           </div>
-          <Wilson width="115" height="115"/>
+          <Wilson width="115" height="115" />
         </div>
         <div className="flex items-center justify-between">
-        <button onClick={handleEditProfile} className="border-black border-2 px-3 py-2 font-PressStart2p text-xxs">Editar Perfil</button>
+          <button className="border-black border-2 px-3 py-2 font-PressStart2p text-xxs">Editar Perfil</button>
           <button className="border-black border-2 px-3 py-2 font-PressStart2p text-xxs">Share Profile</button>
         </div>
       </div>
@@ -44,7 +36,7 @@ export function HomePage({ onChangePage }) {
         <span className="font-JetbrainsMono font-extrabold text-blue text-xs">{formataData(new Date())}</span>
       </div>
 
-      <div className="grid grid-cols-2 grid-rows-3 gap-3 mx-6 mb-2 ">
+      <div className="grid grid-cols-2 grid-rows-3 gap-3 mx-6 mb-2 " style={{ paddingBottom: "40px" }}>
 
         <div className="border-2 border-black p-5 shadow-lg">
           <p className="font-PressStart2p text-xxs text-blue mb-2 ">{numeroDePlays()}
