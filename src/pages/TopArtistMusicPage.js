@@ -19,7 +19,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
                 return "Últimas 4 semanas"
             case "6meses":
                 return "Últimos 6 meses "
-            case "últimoAno":
+            case "ultimoAno":
                 return "Último ano"
             default:
                 return " "
@@ -82,7 +82,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
                 <div className="bg-lightgrey grid grid-cols-4 gap-1 fixed bottom-0 left-0 right-0 w-full mb-16" style={{ paddingBottom: "15px" }}>
                     <button onClick={() => handleAlbumArt("4semanas")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "4semanas" ? "bg-lighterblue" : "bg-lightgrey"}`}>4 semanas</button>
                     <button onClick={() => handleAlbumArt("6meses")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "6meses" ? "bg-lighterblue" : "bg-lightgrey"}`}>6 meses</button>
-                    <button onClick={() => handleAlbumArt("últimoAno")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "últimoAno" ? "bg-lighterblue" : "bg-lightgrey"}`}>Último ano</button>
+                    <button onClick={() => handleAlbumArt("ultimoAno")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "ultimoAno" ? "bg-lighterblue" : "bg-lightgrey"}`}>Último ano</button>
                     <button onClick={() => handleAlbumArt("sempre")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "sempre" ? "bg-lighterblue" : "bg-lightgrey"}`}>Sempre</button>
                 </div>
             </div>

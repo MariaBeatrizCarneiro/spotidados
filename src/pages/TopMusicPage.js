@@ -40,8 +40,8 @@ export function TopMusicPage({ onChangePage, currentPage }) {
             6meses
           </button>
           <button
-            onClick={() => onChangePeriodo("últimoAno")}
-            className={`font-JetbrainsMono font-bold text-xs px-1 py-2 bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue ${periodo === "últimoAno" ? "bg-lighterblue" : ""}`}>
+            onClick={() => onChangePeriodo("ultimoAno")}
+            className={`font-JetbrainsMono font-bold text-xs px-1 py-2 bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue ${periodo === "ultimoAno" ? "bg-lighterblue" : ""}`}>
             Último ano
           </button>
           <button
