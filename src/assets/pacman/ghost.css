@@ -1,0 +1,26 @@
+#ghost {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 50px;
+    height: auto;
+    animation: ghostMove 6s infinite;
+  }
+  
+  @keyframes ghostMove {
+    0% { transform: scaleX(-1);
+      left: 0;
+     
+    }
+    50% {
+      left: calc(100% - 50px);
+      transform: scaleX(-1); /* Switch to forward-facing here */
+    }
+    50.1% { /* Introduce a minimal time frame for direction change */
+      transform: scaleX(1); /* Instant mirroring */
+    }
+    100% {
+      left: 0;
+      transform: scaleX(1);
+    }
+  }
