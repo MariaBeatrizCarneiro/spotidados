@@ -19,7 +19,10 @@ export function ArtistPage({ onChangePage, selectedArtist }) {
 
             <div className="flex-grow bg-lightgrey " style={{ paddingTop: "60px" }}>
                 <div>
-                    <div className="w-85 h-60 mx-6 border-black border-2">
+                    <div className="flex justify-center item-center overflow-hidden w-85 h-60 mx-6 border-black border-2">
+                            <img
+                            src="https://c4.wallpaperflare.com/wallpaper/903/1022/443/digital-art-thefatrat-pixel-art-cover-art-hd-wallpaper-preview.jpg"
+                            className="flex-shrink-0" />
                     </div>
 
                     <div className="grid grid-cols-2 items-center px-6 mt-6">
@@ -38,17 +41,17 @@ export function ArtistPage({ onChangePage, selectedArtist }) {
                 <div className="grid grid-cols-2 grid-rows-3 gap-3 p-6" style={{ paddingBottom: "100px" }}>
                     <div className="border-2 border-black p-5 shadow-lg">
                     <p className="font-PressStart2p text-xxs text-blue mb-2 ">{numPlaysArtista(selectedArtist)}</p>
-                    <p className="font-JetbrainsMono text-sm font-semibold">vezes que ouviste este artista</p>
+                    <p className="font-JetbrainsMono text-sm font-semibold">vez{numPlaysArtista(selectedArtist) === 1 ? ' que ouviste este artista' : 'es que ouviste este artista'}</p>
                     </div>
 
                     <div className="border-2 border-black p-5 shadow-lg">
-                    <p className="font-PressStart2p text-xxs text-blue mb-2 ">#{posicaoTopCemArtista(selectedArtist) !== 0 ? posicaoTopCemArtista(selectedArtist) : `0`}</p>
-                    <p className="font-JetbrainsMono text-sm font-semibold">posição deste artista no teu top #100</p>
+                    <p className="font-PressStart2p text-xxs text-blue mb-2 ">{posicaoTopCemArtista(selectedArtist) !== 0 ? '#' + posicaoTopCemArtista(selectedArtist) : `:(`}</p>
+                    <p className="font-JetbrainsMono text-sm font-semibold">{posicaoTopCemArtista(selectedArtist) !== 0 ? 'posição deste artista no teu top #100' : 'este artista ainda não está no teu top #100'}</p>
                     </div>
 
                     <div className="border-2 border-black p-5 shadow-lg">
                     <p className="font-PressStart2p text-xxs text-blue mb-2 ">{minutosOuvidosArtista(selectedArtist)}</p>
-                    <p className="font-JetbrainsMono text-sm font-semibold">minutos que passaste a ouvir este artista</p>
+                    <p className="font-JetbrainsMono text-sm font-semibold">minuto{minutosOuvidosArtista(selectedArtist) === 1 ? 'que passaste a ouvir este artista' : 's que passaste a ouvir este artista'}</p>
                     </div>
 
                     <div className="border-2 border-black p-5 shadow-lg">
