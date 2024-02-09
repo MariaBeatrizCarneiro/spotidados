@@ -14,16 +14,16 @@
   animation: spin2 0.4s infinite linear;
 }
 
-.feed {
-  margin-top: -92.5px; /* Half the original margin-top */
-  margin-left: 7.5px; /* Half the original margin-left */
-  width: 22.5px; /* Half the original width */
-  height: 22.5px; /* Half the original height */
-  border-radius: 15%; /* Half the original border-radius */
-  -moz-animation: eat 0.5s linear 0s infinite;
-  -webkit-animation: eat 0.5s linear 0s infinite;
-  animation: eat 0.5s linear 0s infinite;
-}
+  .feed {
+    margin-top: -92.5px; /* Half the original margin-top */
+    margin-left: 7.5px; /* Half the original margin-left */
+    width: 22.5px; /* Half the original width */
+    height: 22.5px; /* Half the original height */
+    border-radius: 15%; /* Half the original border-radius */
+    -moz-animation: eat 0.5s linear 0s infinite;
+    -webkit-animation: eat 0.5s linear 0s infinite;
+    animation: eat 0.5s linear 0s infinite;
+  }
 
 /* Animation */
 
