@@ -35,7 +35,7 @@ export function SearchPage({ onChangePage }) {
       ) : null}
 
       {artistNamesArr().indexOf(artista) !== -1 ? (
-        <ArtistPage />
+        <ArtistPage onChangePage={onChangePage} selectedArtist={artista} />
       ) : null}
     </div>
   );
