@@ -18,7 +18,7 @@ export function HomePage({ onChangePage }) {
 
     <div className="page bg-lightgrey flex flex-col" >
 
-      <div className="w-full">
+      <div className="w-full bg-lightgrey">
         <div className="flex items-center pl-3 pt-3 pb-2 fixed">
           <img src= {logo} alt="Logo" className="w-10 h-10 mr-2" />
           <span className="text-xs font-PressStart2p font-semibold ">Spotidados</span>
