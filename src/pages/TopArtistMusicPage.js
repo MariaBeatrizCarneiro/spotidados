@@ -48,7 +48,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
             <LogoWithText />
             <div style={{ paddingTop: "50px" }} ></div>
 
-            <div className="fixed w-full bg-white z-10 text-center bg-lightgrey">
+            <div className="fixed w-full z-10 text-center bg-lightgrey">
         
                 <p className="text-lg font-PressStart2p">Top #20</p>
                 <p className="font-JetbrainsMono text-xs text-black pb-1">{selectedArtist}</p>
