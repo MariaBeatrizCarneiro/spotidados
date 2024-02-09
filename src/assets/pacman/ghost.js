@@ -4,7 +4,7 @@ import ghost from './ghost.png'
 
 function Ghost() {
   return (
-
+    
     <img id="ghost" src={ghost} alt="Ghost"></img>
 
   );
