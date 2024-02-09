@@ -7,6 +7,11 @@ export function TopPage({ onChangePage }) {
   const [periodo, setPeriodo] = useState("sempre");
   const [exibirArtistas, setExibirArtistas] = useState(false);
   const onChangePeriodo = (novoPeriodo) => { setPeriodo(novoPeriodo); };
+  const handleArtistClick = (nomeArtista) => {
+    if (nomeArtista !== "") {
+      onChangePage("artista", nomeArtista);
+    }
+  };
 
   function displayPeriodo(periodo) {
     switch (periodo) {
@@ -22,6 +27,7 @@ export function TopPage({ onChangePage }) {
         return " "
     }
   }
+
 
   return (
     <div className="bg-lightgrey">
@@ -43,11 +49,13 @@ export function TopPage({ onChangePage }) {
 
       <p className="px-6" style={{ paddingTop: "115px", paddingBottom: "60px" }}>
         {exibirArtistas ?
-          topCemArtistas(periodo).map((artista, index) => (
-            <div key={index} className="grid grid-cols-12 border-2 border-black p-1 py-4 shadow-lg mb-2 items-center">
-              <p className="col-span-3 text-blue font-PressStart2p align-text-middle ps-2">#{index + 1}</p>
-              <p className="col-span-9 font-JetbrainsMono font-extrabold align-text-middle text-blue whitespace-nowrap overflow-hidden">{artista}</p>
-            </div>
+          topCemArtistas(periodo).map((nomeArtista, index) => (
+            <button key={index} onClick={() => handleArtistClick(nomeArtista)} className="w-full mb-4">
+              <div className="grid grid-cols-12 border-2 border-black p-1 py-4 shadow-lg mb-2 items-center">
+                <p className="col-span-3 text-blue font-PressStart2p align-text-middle ps-2">#{index + 1}</p>
+                <p className="col-span-9 font-JetbrainsMono font-extrabold align-text-middle text-blue whitespace-nowrap overflow-hidden">{nomeArtista}</p>
+              </div>
+            </button>
           )) :
           topCemMusicas(periodo).map((musica, index) => (
             <div key={index} className="grid grid-cols-12 border-2 border-black p-1 shadow-lg mb-2 items-center">
