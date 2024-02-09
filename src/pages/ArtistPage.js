@@ -44,10 +44,14 @@ export function ArtistPage({ onChangePage }) {
             </div>
 
             <div className="grid grid-cols-2 items-center px-6 mt-6">
-              <p className="col-span-1 font-PressStart2p text-black">{artista}</p>
+              <p className="col-span-1 font-PressStart2p text-black">
+                {artista}
+              </p>
               <div className="flex justify-center">
                 <button onClick={handleTop20Click}
-                  className={`font-PressStart2p text-xxs px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue hover:scale-125`}>Top #20</button>
+                  className={`font-PressStart2p text-xxs px-4 py-2 rounded-none bg-lightgrey bg-opacity-80 border-2 border-lighterblue hover:bg-lighterblue hover:scale-125`}>
+                  Top #20
+                </button>
               </div>
             </div>
           </div>

@@ -20,10 +20,10 @@ export function HomePage({ onChangePage }) {
       <div className="mt-20 mx-6">
         <div className="grid grid-cols-6 mb-6">
           <div className="col-span-4">
-            <h1 className="font-PressStart2p text-xl w-44">Wilson Felizardo</h1>
+            <h1 className="font-PressStart2p text-xl w-44">Wilson Contente</h1>
             <p className="font-JetbrainsMono text-xs text-green">Estoy usando el spotiDados. Dale!</p>
           </div>
-          <Wilson width="115" height="115"/>
+          <Wilson width="115" height="115" />
         </div>
         <div className="flex items-center justify-between">
           <button className="border-black border-2 px-3 py-2 font-PressStart2p text-xxs">Editar Perfil</button>

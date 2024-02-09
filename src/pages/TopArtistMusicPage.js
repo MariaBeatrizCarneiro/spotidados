@@ -49,8 +49,9 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
             <div style={{ paddingTop: "50px" }} ></div>
 
             <div className="fixed w-full bg-white z-10 text-center bg-lightgrey">
-                <p className="text-lg">Top #20:</p>
-                <p className="pb-2 text-lighterblue">{topVinte.period}</p>
+        
+                <p className="text-lg font-PressStart2p">Top #20</p>
+                <p className="text-xxs font-PressStart2p pb-2 text-green">{topVinte.period}</p>
             </div>
 
             <ol className="bg-lightgrey" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
@@ -62,11 +63,11 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
             </ol>
 
             <div className="bg-lightgrey" style={{ paddingTop: "1rem" }}>
-                <div className="grid grid-cols-4 gap-2 fixed bottom-0 left-0 w-full mb-16" style={{ paddingBottom: "15px" }}>
-                    <button onClick={() => handleAlbumArt("4semanas")} className={`px-4 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "4semanas" ? "bg-lighterblue" : "bg-lightgrey"}`}>4 semanas</button>
-                    <button onClick={() => handleAlbumArt("6meses")} className={`px-4 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "6meses" ? "bg-lighterblue" : "bg-lightgrey"}`}>6 meses</button>
-                    <button onClick={() => handleAlbumArt("últimoAno")} className={`px-4 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "últimoAno" ? "bg-lighterblue" : "bg-lightgrey"}`}>Último ano</button>
-                    <button onClick={() => handleAlbumArt("sempre")} className={`px-4 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "sempre" ? "bg-lighterblue" : "bg-lightgrey"}`}>Sempre</button>
+                <div className="grid grid-cols-4 gap-1 fixed bottom-0 left-0 right-0 w-full mb-16" style={{ paddingBottom: "15px" }}>
+                    <button onClick={() => handleAlbumArt("4semanas")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "4semanas" ? "bg-lighterblue" : "bg-lightgrey"}`}>4 semanas</button>
+                    <button onClick={() => handleAlbumArt("6meses")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "6meses" ? "bg-lighterblue" : "bg-lightgrey"}`}>6 meses</button>
+                    <button onClick={() => handleAlbumArt("últimoAno")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "últimoAno" ? "bg-lighterblue" : "bg-lightgrey"}`}>Último ano</button>
+                    <button onClick={() => handleAlbumArt("sempre")} className={`font-JetbrainsMono font-bold text-xs px-1 py-2 rounded-none bg-opacity-90 border-2 border-lighterblue ${topVinte.period === "sempre" ? "bg-lighterblue" : "bg-lightgrey"}`}>Sempre</button>
                 </div>
             </div>
 
