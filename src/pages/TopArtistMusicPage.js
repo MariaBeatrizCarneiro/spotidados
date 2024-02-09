@@ -11,6 +11,21 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
         period: "sempre"
     })
 
+    function displayPeriodo(periodo) {
+        switch (periodo) {
+            case "sempre":
+                return "desde sempre"
+            case "4semanas":
+                return "Últimas 4 semanas"
+            case "6meses":
+                return "Últimos 6 meses "
+            case "últimoAno":
+                return "Último ano"
+            default:
+                return " "
+        }
+    }
+
     const fetchAlbumArt = async (album) => {
         try {
             const response = await fetch(`https://musicbrainz.org/ws/2/release/?query=release:${encodeURIComponent(album)}&fmt=json`);
@@ -52,7 +67,7 @@ export function TopArtistMusicPage({ onChangePage, selectedArtist }) {
 
                 <p className="text-lg font-PressStart2p">Top #20</p>
                 <p className="font-JetbrainsMono text-xs text-black pb-1">{selectedArtist}</p>
-                <p className="text-xxs font-PressStart2p pb-2 text-green">{topVinte.period}</p>
+                <p className="text-xxs font-PressStart2p pb-2 text-green">{displayPeriodo(topVinte.period)}</p>
             </div>
 
             <ol className="bg-lightgrey" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
