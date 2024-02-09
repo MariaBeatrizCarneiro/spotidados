@@ -29,16 +29,15 @@ export function HomePage({ onChangePage }) {
 
   return (
 
-    <div className="page bg-lightgrey flex flex-col" >
+    <div className="bg-lightgrey flex flex-col" >
 
-      <div className="w-full">
-        <div className="flex items-center pl-3 pt-3 pb-2 fixed">
-          <img src= {logo} alt="Logo" className="w-10 h-10 mr-2" />
-          <span className="text-xs font-PressStart2p font-semibold ">Spotidados</span>
-        </div>
+      <div className="flex items-center pl-5 pt-3 pb-2 fixed bg-lightgrey w-full top-0">
+        <img src= {logo} alt="Logo" className="w-10 h-10 mr-2" />
+        <span className="text-xs font-PressStart2p font-semibold ">Spotidados</span>
       </div>
+      <div style={{ paddingTop: "254px" }} ></div>
 
-      <div className="mt-20 mx-6">
+      <div className="mt-20 mx-6 fixed bg-lightgrey">
         <div className="grid grid-cols-6 mb-6">
           <div className="col-span-4">
             <h1 className="font-PressStart2p text-xl w-44">{userName}</h1>
@@ -52,13 +51,15 @@ export function HomePage({ onChangePage }) {
         </div>
       </div>
 
-      <div className="m-6 flex flex-wrap gap-2">
-        <Calendar />
-        <span className="font-JetbrainsMono font-extrabold text-blue text-xs">{formataData(new Date())}</span>
+      <div>
+        <div className="px-6 flex py-5 flex-wrap gap-2 fixed w-full bg-lightgrey">
+          <Calendar />
+          <span className="font-JetbrainsMono font-extrabold text-blue text-xs">{formataData(new Date())}</span>
+        </div>
       </div>
+      
 
-      <div className="grid grid-cols-2 grid-rows-3 gap-3 mx-6 mb-2 ">
-
+      <div className="grid grid-cols-2 grid-rows-3 gap-3 mx-6 mb-2 " style={{ paddingBottom: "40px", paddingTop:"60px" }}>
         <div className="border-2 border-black p-5 shadow-lg">
           <p className="font-PressStart2p text-xxs text-blue mb-2 ">{numeroDePlays()}
           </p>
@@ -92,31 +93,28 @@ export function HomePage({ onChangePage }) {
       </div>
 
       <Menu onChangePage={onChangePage} />
+      <div className="mb-16"></div>
       
       {/* Share Profile Popup */}
       {showSharePopup && (
-  <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
-    <div className="bg-lightgrey rounded-lg border-solid border-2 border-gray-400 w-80">
-      <div className="px-6 py-4 bg-lightgrey"> {}
-        <h2 className="text-lg font-bold mb-4 font-PressStart2p">Share Profile</h2>
-        <p className="text-sm text-gray-800 mb-4 font-PressStart2p">
-          Hello {userName}, your account has been shared!
-        </p>
-        <button
-          onClick={handleClosePopup}
-          className="font-JetbrainsMono bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800"
-        >
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-)}
-
-
-
-      
-      <div className="mb-16"></div>
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
+          <div className="bg-lightgrey rounded-lg border-solid border-2 border-gray-400 w-80">
+            <div className="px-6 py-4 bg-lightgrey"> {}
+              <h2 className="text-lg font-bold mb-4 font-PressStart2p">Share Profile</h2>
+              <p className="text-sm text-gray-800 mb-4 font-PressStart2p">
+                Hello {userName}, your account has been shared!
+              </p>
+              <button
+                onClick={handleClosePopup}
+                className="font-JetbrainsMono bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+   
     </div >
   );
 }
